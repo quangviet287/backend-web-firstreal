@@ -14,7 +14,7 @@ public class Advisory implements Serializable {
     private String id = UUID.randomUUID().toString();
 
     @Column(name = "age")
-    private int age;
+    private String age;
 
     @Column(name = "sex")
     private boolean sex;
@@ -22,7 +22,7 @@ public class Advisory implements Serializable {
     public Advisory() {
     }
 
-    public Advisory(int age, boolean sex) {
+    public Advisory(String age, boolean sex) {
         this.age = age;
         this.sex = sex;
     }
@@ -31,11 +31,11 @@ public class Advisory implements Serializable {
         return id;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

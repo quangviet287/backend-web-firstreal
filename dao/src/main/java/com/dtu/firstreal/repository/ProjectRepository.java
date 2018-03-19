@@ -1,4 +1,10 @@
 package com.dtu.firstreal.repository;
 
-public class ProjectRepository {
+import com.dtu.firstreal.entity.Project;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface ProjectRepository extends JpaRepository<Project, String> {
+    List<Project> findAll();
 }
