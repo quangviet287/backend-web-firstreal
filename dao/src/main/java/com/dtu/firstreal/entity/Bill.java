@@ -13,17 +13,17 @@ public class Bill implements Serializable {
     @Id
     private String id = UUID.randomUUID().toString();
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_employee")
-    private Employee idEmployee;
+    @OneToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_customer")
-    private Customer idCustomer;
+    @OneToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_project_detail")
-    private ProjectDetail idProjectDetail;
+    @OneToOne
+    @JoinColumn(name = "project_detail_id")
+    private ProjectDetail projectDetail;
 
     @Column(name = "date_create")
     private Date dateCreate;
@@ -32,9 +32,9 @@ public class Bill implements Serializable {
     }
 
     public Bill(Employee idEmployee, Customer idCustomer, ProjectDetail idProjectDetail, Date dateCreate) {
-        this.idEmployee = idEmployee;
-        this.idCustomer = idCustomer;
-        this.idProjectDetail = idProjectDetail;
+        this.employee = idEmployee;
+        this.customer = idCustomer;
+        this.projectDetail = idProjectDetail;
         this.dateCreate = dateCreate;
     }
 
@@ -42,28 +42,28 @@ public class Bill implements Serializable {
         return id;
     }
 
-    public Employee getIdEmployee() {
-        return idEmployee;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setIdEmployee(Employee idEmployee) {
-        this.idEmployee = idEmployee;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
-    public Customer getIdCustomer() {
-        return idCustomer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setIdCustomer(Customer idCustomer) {
-        this.idCustomer = idCustomer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public ProjectDetail getIdProjectDetail() {
-        return idProjectDetail;
+    public ProjectDetail getProjectDetail() {
+        return projectDetail;
     }
 
-    public void setIdProjectDetail(ProjectDetail idProjectDetail) {
-        this.idProjectDetail = idProjectDetail;
+    public void setProjectDetail(ProjectDetail projectDetail) {
+        this.projectDetail = projectDetail;
     }
 
     public Date getDateCreate() {

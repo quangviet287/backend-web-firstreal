@@ -11,9 +11,9 @@ public class ProjectDetail implements Serializable {
     @Id
     private String id = UUID.randomUUID().toString();
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_project")
-    private Project idProject;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "project_id")
+    private Project project;
 
     @Column(name = "project_detail_name")
     private String projectDetailName;
@@ -36,15 +36,16 @@ public class ProjectDetail implements Serializable {
     @Column(name = "image_project_detail_url")
     private String imageProjectDetailUrl;
 
-
-    private String idEmployee;
+    @OneToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 
     public ProjectDetail() {
     }
 
-    public ProjectDetail(Project idProject, String projectDetailName, String location, String direction,
-                         int size, String price, boolean state, String imageProjectDetailUrl, String idEmployee) {
-        this.idProject = idProject;
+    public ProjectDetail(Project project, String projectDetailName, String location, String direction,
+                         int size, String price, boolean state, String imageProjectDetailUrl, Employee employee) {
+        this.project = project;
         this.projectDetailName = projectDetailName;
         this.location = location;
         this.direction = direction;
@@ -52,19 +53,19 @@ public class ProjectDetail implements Serializable {
         this.price = price;
         this.state = state;
         this.imageProjectDetailUrl = imageProjectDetailUrl;
-        this.idEmployee = idEmployee;
+        this.employee = employee;
     }
 
     public String getId() {
         return id;
     }
 
-    public Project getIdProject() {
-        return idProject;
+    public Project getProject() {
+        return project;
     }
 
-    public void setIdProject(Project idProject) {
-        this.idProject = idProject;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public String getProjectDetailName() {
@@ -123,11 +124,11 @@ public class ProjectDetail implements Serializable {
         this.imageProjectDetailUrl = imageProjectDetailUrl;
     }
 
-    public String getIdEmployee() {
-        return idEmployee;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setIdEmployee(String idEmployee) {
-        this.idEmployee = idEmployee;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

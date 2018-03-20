@@ -27,8 +27,8 @@ public class Employee implements Serializable {
     private String imageProfileUrl;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_role")
-    private Role idRole;
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     @Column(name = "username")
     private String username;
@@ -41,13 +41,13 @@ public class Employee implements Serializable {
 
     public Employee(String employeeName, Boolean sex,
                     int age, String phoneNumber, String imageProfileUrl,
-                    Role idRole, String username, String password){
+                    Role role, String username, String password){
         this.employeeName = employeeName;
         this.sex = sex;
         this.age = age;
         this.phoneNumber = phoneNumber;
         this.imageProfileUrl = imageProfileUrl;
-        this.idRole = idRole;
+        this.role = role;
         this.username = username;
         this.password = password;
     }
@@ -96,12 +96,12 @@ public class Employee implements Serializable {
         this.imageProfileUrl = imageProfileUrl;
     }
 
-    public Role getIdRole() {
-        return idRole;
+    public Role getRole() {
+        return role;
     }
 
-    public void setIdRole(Role idRole) {
-        this.idRole = idRole;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getUsername() {
