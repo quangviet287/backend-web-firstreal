@@ -1,5 +1,7 @@
 package com.dtu.firstreal.entity;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
@@ -31,6 +33,7 @@ public class ProjectDetail implements Serializable {
     private String price;
 
     @Column(name = "state")
+    @Nullable
     private boolean state;
 
     @Column(name = "image_project_detail_url")

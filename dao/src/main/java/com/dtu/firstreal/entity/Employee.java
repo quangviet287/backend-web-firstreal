@@ -26,7 +26,7 @@ public class Employee implements Serializable {
     @Column(name = "image_profile_url")
     private String imageProfileUrl;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "role_id")
     private Role role;
 

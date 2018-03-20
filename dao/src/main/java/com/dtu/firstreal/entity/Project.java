@@ -28,17 +28,17 @@ public class Project implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "project_type_id")
-    private ProjectType idProjectType;
+    private ProjectType projectType;
 
     public Project() {
     }
 
-    public Project(String projectName, Address idAddress, String description, String imageProfileUrl, ProjectType idProjectType) {
+    public Project(String projectName, Address address, String description, String imageProfileUrl, ProjectType idProjectType) {
         this.projectName = projectName;
-        this.address = idAddress;
+        this.address = address;
         this.description = description;
         this.imageProfileUrl = imageProfileUrl;
-        this.idProjectType = idProjectType;
+        this.projectType = idProjectType;
     }
 
     public String getId() {
@@ -77,11 +77,11 @@ public class Project implements Serializable {
         this.imageProfileUrl = imageProfileUrl;
     }
 
-    public ProjectType getIdProjectType() {
-        return idProjectType;
+    public ProjectType getProjectType() {
+        return projectType;
     }
 
-    public void setIdProjectType(ProjectType idProjectType) {
-        this.idProjectType = idProjectType;
+    public void setProjectType(ProjectType projectType) {
+        this.projectType = projectType;
     }
 }
