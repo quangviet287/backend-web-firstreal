@@ -9,8 +9,6 @@
     <list default="true" id="de4f757c-a9da-4a94-a180-7348e8128bb6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/utility/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/utility/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/EmployeeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/EmployeeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/EmployeeServiceImpl.java" afterDir="false" />
     </list>
@@ -44,8 +42,8 @@
       <file leaf-file-name="EmployeeService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/EmployeeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="135">
+              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -53,11 +51,13 @@
       <file leaf-file-name="EmployeeServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/EmployeeServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="457">
+              <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
               <folding>
                 <element signature="e#863#864#0" expanded="true" />
                 <element signature="e#896#897#0" expanded="true" />
+                <element signature="e#1153#1154#0" expanded="true" />
+                <element signature="e#1180#1181#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,13 +66,11 @@
       <file leaf-file-name="EmployeeController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="44" column="11" selection-start-line="44" selection-end-line="45" />
+            <state relative-caret-position="37">
+              <caret line="33" column="62" lean-forward="true" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
               <folding>
                 <element signature="e#1477#1478#0" expanded="true" />
                 <element signature="e#1533#1534#0" expanded="true" />
-                <element signature="e#1624#1625#0" expanded="true" />
-                <element signature="e#1684#1685#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,10 +130,10 @@
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/entity/ProjectDetail.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/EmployeeRepository.java" />
-        <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/utility/Constants.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/EmployeeService.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/EmployeeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java" />
       </list>
     </option>
   </component>
@@ -383,12 +381,12 @@
       <workItem from="1521450474061" duration="1970000" />
       <workItem from="1521605581967" duration="681000" />
       <workItem from="1521607317681" duration="5165000" />
-      <workItem from="1521692336742" duration="5994000" />
+      <workItem from="1521692336742" duration="8282000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27827000" />
+    <option name="totallyTimeSpent" value="30115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="-14" width="1870" height="1095" extended-state="6" />
@@ -773,31 +771,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/EmployeeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="135">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/EmployeeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="457">
+          <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
           <folding>
             <element signature="e#863#864#0" expanded="true" />
             <element signature="e#896#897#0" expanded="true" />
+            <element signature="e#1153#1154#0" expanded="true" />
+            <element signature="e#1180#1181#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="44" column="11" selection-start-line="44" selection-end-line="45" />
+        <state relative-caret-position="37">
+          <caret line="33" column="62" lean-forward="true" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
           <folding>
             <element signature="e#1477#1478#0" expanded="true" />
             <element signature="e#1533#1534#0" expanded="true" />
-            <element signature="e#1624#1625#0" expanded="true" />
-            <element signature="e#1684#1685#0" expanded="true" />
           </folding>
         </state>
       </provider>

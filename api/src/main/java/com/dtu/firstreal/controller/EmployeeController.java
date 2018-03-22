@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -42,10 +43,21 @@ public class EmployeeController  {
         employeeService.createEmployee(employee);
     }
 
-    @PutMapping("/employee")
-    public void updateEmployee(@RequestBody Employee employee){
-        employeeService.updateEmployeeById(employee);
+//    @PutMapping("/employee")
+//    public void updateEmployee(@RequestBody Employee employee){
+//        employeeService.updateEmployeeById(employee);
+//    }
+
+    @RequestMapping(value = "/employee/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Employee> update(@PathVariable(value = "id") String id, @Valid @RequestBody Employee employeeForm){
+        Employee employee = employeeService.findEmployeeById(id);
+        if(employee == null){
+            return ResponseEntity.notFound().build();
+        }
+        employee.setAge(employeeForm.getAge());
+        employee.setEmployeeName(employeeForm.getEmployeeName());
+
+        Employee employeeUpdate = employeeService.save(employee);
+        return ResponseEntity.ok(employeeUpdate);
     }
-
-
 }

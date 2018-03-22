@@ -9,4 +9,5 @@ public interface EmployeeService {
     Employee findEmployeeById(String id);
     void createEmployee(Employee employee);
     void updateEmployeeById(Employee employee);
+    Employee save(Employee employee);
 }
