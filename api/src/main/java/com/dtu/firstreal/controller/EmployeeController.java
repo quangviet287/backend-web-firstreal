@@ -33,10 +33,19 @@ public class EmployeeController  {
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
     @GetMapping("/employee/{id}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") String id){
+    public ResponseEntity<Object> getEmployeeById(@PathVariable("id") String id){
         Employee employee = employeeService.findEmployeeById(id);
-        return new ResponseEntity<Employee>(employee,HttpStatus.OK);
+        return new ResponseEntity<>(employee,HttpStatus.OK);
     }
-//    @PostMapping("/employee")
+    @PostMapping("/employee")
+    public void addEmployee(@RequestBody Employee employee){
+        employeeService.createEmployee(employee);
+    }
+
+    @PutMapping("/employee")
+    public void updateEmployee(@RequestBody Employee employee){
+        employeeService.updateEmployeeById(employee);
+    }
+
 
 }
