@@ -20,4 +20,21 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> findAllEmployee() {
         return employeeRepository.findAll();
     }
+
+    @Override
+    public Employee findEmployeeById(String id) {
+        Employee employee = employeeRepository.findById(id).get();
+        return employee;
+    }
+
+    @Override
+    public synchronized boolean addEmployee(Employee employee) {
+        List<Employee> list = employeeRepository.findByNameAndAge(employee.getEmployeeName(),employee.getAge());
+        if(list.size()>0){
+            return  false;
+        }else{
+            employeeRepository.save(employee);
+            return true;
+        }
+    }
 }

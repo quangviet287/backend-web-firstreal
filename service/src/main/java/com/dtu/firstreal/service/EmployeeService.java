@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface EmployeeService {
     List<Employee> findAllEmployee();
+    Employee findEmployeeById(String id);
+    boolean addEmployee(Employee employee);
 }
