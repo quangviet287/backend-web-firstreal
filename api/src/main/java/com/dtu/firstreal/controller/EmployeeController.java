@@ -60,4 +60,14 @@ public class EmployeeController  {
         Employee employeeUpdate = employeeService.save(employee);
         return ResponseEntity.ok(employeeUpdate);
     }
+
+    @RequestMapping(value = "/employee/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Employee> delete(@PathVariable("id") String id){
+        Employee employee = employeeService.findEmployeeById(id);
+        if(employee == null){
+            return ResponseEntity.notFound().build();
+        }
+        employeeService.delete(employee);
+        return ResponseEntity.ok().build();
+    }
 }

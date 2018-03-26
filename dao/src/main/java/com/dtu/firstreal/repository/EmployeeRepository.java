@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface EmployeeRepository extends JpaRepository<Employee, String>, CrudRepository<Employee, String> {
     List<Employee> findAll();
     Optional<Employee> findById(String id);
-    Employee findEmployeeById(String id);
+//    Employee findEmployeeById(String id);
 //    List<Employee> findByEmployeeNameNameAndAge(String employeeName, Integer employeeAge);
 }
