@@ -11,4 +11,5 @@ public interface EmployeeService {
     void updateEmployeeById(Employee employee);
     Employee save(Employee employee);
     void delete(Employee employee);
+    Employee getEmployeeByUserName(String username);
 }

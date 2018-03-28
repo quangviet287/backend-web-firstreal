@@ -22,7 +22,6 @@ public class EmployeeController  {
     EmployeeService employeeService;
 
     @GetMapping(value = Constants.URI_EMPLOYEES)
-    @ResponseBody
     public ResponseEntity<Object> getAllEmployees(){
         log.debug("Get all employees");
 
@@ -33,35 +32,34 @@ public class EmployeeController  {
         }
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
-    @GetMapping("/employee/{id}")
+    @GetMapping(value = Constants.URI_EMPLOYEE_ID)
     public ResponseEntity<Object> getEmployeeById(@PathVariable("id") String id){
         Employee employee = employeeService.findEmployeeById(id);
         return new ResponseEntity<>(employee,HttpStatus.OK);
     }
-    @PostMapping("/employee")
+
+    @PostMapping(value = Constants.URI_EMPLOYEE)
     public void addEmployee(@RequestBody Employee employee){
         employeeService.createEmployee(employee);
     }
 
-//    @PutMapping("/employee")
-//    public void updateEmployee(@RequestBody Employee employee){
-//        employeeService.updateEmployeeById(employee);
-//    }
 
-    @RequestMapping(value = "/employee/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = Constants.URI_EMPLOYEE_ID)
     public ResponseEntity<Employee> update(@PathVariable(value = "id") String id, @Valid @RequestBody Employee employeeForm){
         Employee employee = employeeService.findEmployeeById(id);
         if(employee == null){
             return ResponseEntity.notFound().build();
         }
-        employee.setAge(employeeForm.getAge());
         employee.setEmployeeName(employeeForm.getEmployeeName());
+        employee.setSex(employeeForm.getSex());
+        employee.setAge(employeeForm.getAge());
+        employee.setPhoneNumber(employeeForm.getPhoneNumber());
 
         Employee employeeUpdate = employeeService.save(employee);
         return ResponseEntity.ok(employeeUpdate);
     }
 
-    @RequestMapping(value = "/employee/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = Constants.URI_EMPLOYEE_ID)
     public ResponseEntity<Employee> delete(@PathVariable("id") String id){
         Employee employee = employeeService.findEmployeeById(id);
         if(employee == null){
@@ -69,5 +67,14 @@ public class EmployeeController  {
         }
         employeeService.delete(employee);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(value = Constants.URI_EMPLOYEE_USERNAME)
+    public ResponseEntity<Object> getEmployeeByUserName(@PathVariable("username") String username){
+        Employee employee = employeeService.getEmployeeByUserName(username);
+        if(employee == null){
+            return new ResponseEntity<>("No employee found", HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(employee,HttpStatus.OK);
     }
 }

@@ -12,4 +12,5 @@ public interface EmployeeRepository extends JpaRepository<Employee, String>, Cru
     Optional<Employee> findById(String id);
 //    Employee findEmployeeById(String id);
 //    List<Employee> findByEmployeeNameNameAndAge(String employeeName, Integer employeeAge);
+    Employee getOneByUsername(String userName);
 }
