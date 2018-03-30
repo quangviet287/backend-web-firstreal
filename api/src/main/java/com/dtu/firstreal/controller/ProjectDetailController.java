@@ -8,12 +8,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = Constants.URI_API)
@@ -24,7 +22,6 @@ public class ProjectDetailController {
     ProjectDetailService projectDetailService;
 
     @GetMapping(value = Constants.URI_PROJECT_DETAIL)
-    @ResponseBody
     public ResponseEntity<Object> getAllProjectDetail(){
         log.debug("Get all details");
         List<ProjectDetail> projectDetails = projectDetailService.findAllDetail();
@@ -35,4 +32,26 @@ public class ProjectDetailController {
         return new ResponseEntity<>(projectDetails,HttpStatus.OK);
     }
 
+    @GetMapping(value = Constants.URI_PROJECT_DETAIL_ID)
+    public ResponseEntity<Object> getOneProjectDetail(@PathVariable("id") String id){
+        ProjectDetail projectDetail = projectDetailService.getOne(id).get();
+        if (projectDetail == null){
+            return ResponseEntity.notFound().build();
+        }else {
+            return new ResponseEntity<>(projectDetail, HttpStatus.OK);
+        }
+    }
+
+    @PutMapping(value = Constants.URI_PROJECT_DETAIL_ID_UPDATE)
+    public ResponseEntity<Object> updateState(@PathVariable("id") String id){
+        Optional<ProjectDetail> projectDetail = projectDetailService.getOne(id);
+        if (projectDetail.isPresent()){
+            ProjectDetail projectDetailUpdate = projectDetail.get();
+            projectDetailUpdate.setState(true);
+            projectDetailService.save(projectDetailUpdate);
+            return ResponseEntity.ok().build();
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
