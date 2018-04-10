@@ -39,9 +39,20 @@ public class EmployeeController  {
     }
 
     @PostMapping(value = Constants.URI_EMPLOYEE)
-    public void addEmployee(@RequestBody Employee employee){
-        employeeService.createEmployee(employee);
+    public ResponseEntity<Object> createEmployee(@RequestBody Employee employee){
+        String username = employee.getUsername();
+        Employee emp = employeeService.getEmployeeByUserName(username);
+        if(emp == null){
+            employeeService.save(employee);
+            return ResponseEntity.ok().build();
+        }
+        return new ResponseEntity<>("employee exits", HttpStatus.BAD_REQUEST);
     }
+
+//    @PostMapping(value = Constants.URI_EMPLOYEE)
+//    public void addEmployee(@RequestBody Employee employee){
+//        employeeService.createEmployee(employee);
+//    }
 
 
     @PutMapping(value = Constants.URI_EMPLOYEE_ID)
