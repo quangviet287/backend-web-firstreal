@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface ProjectRepository extends JpaRepository<Project, String> {
     List<Project> findAll();
     Optional<Project> findById(String id);
+    Project getOneByProjectName(String projectName);
 }

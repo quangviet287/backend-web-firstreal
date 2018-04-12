@@ -10,8 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = Constants.URI_API)
@@ -34,7 +34,7 @@ public class ProjectDetailController {
 
     @GetMapping(value = Constants.URI_PROJECT_DETAIL_ID)
     public ResponseEntity<Object> getOneProjectDetail(@PathVariable("id") String id){
-        ProjectDetail projectDetail = projectDetailService.getOne(id).get();
+        ProjectDetail projectDetail = projectDetailService.getOne(id);
         if (projectDetail == null){
             return ResponseEntity.notFound().build();
         }else {
@@ -42,16 +42,55 @@ public class ProjectDetailController {
         }
     }
 
+    @PostMapping(value = Constants.URI_PROJECT_DETAIL)
+    public ResponseEntity<Object> createProjectDetails(@Valid @RequestBody ProjectDetail projectDetail){
+        String projectDetailName = projectDetail.getProjectDetailName();
+        if(projectDetailService.getOneByName(projectDetailName)==null){
+            projectDetailService.save(projectDetail);
+            return ResponseEntity.ok().build();
+        }
+        return new ResponseEntity<>("Project details exits", HttpStatus.BAD_REQUEST);
+    }
+
+
+    @PutMapping(value = Constants.URI_PROJECT_DETAIL_ID)
+    public ResponseEntity<Object> updateProjectDetails(@PathVariable("id") String id, @Valid @RequestBody ProjectDetail projectDetailForm){
+        ProjectDetail projectDetail = projectDetailService.getOne(id);
+        if(projectDetail == null){
+            return ResponseEntity.notFound().build();
+        }else {
+            projectDetail.setPrice(projectDetailForm.getPrice());
+            projectDetail.setSize(projectDetailForm.getSize());
+            projectDetail.setDirection(projectDetailForm.getDirection());
+            projectDetail.setEmployee(projectDetailForm.getEmployee());
+            projectDetail.setLocation(projectDetailForm.getLocation());
+
+            projectDetailService.save(projectDetail);
+            return ResponseEntity.ok().build();
+        }
+    }
+
+
     @PutMapping(value = Constants.URI_PROJECT_DETAIL_ID_UPDATE)
     public ResponseEntity<Object> updateState(@PathVariable("id") String id){
-        Optional<ProjectDetail> projectDetail = projectDetailService.getOne(id);
-        if (projectDetail.isPresent()){
-            ProjectDetail projectDetailUpdate = projectDetail.get();
+        ProjectDetail projectDetail = projectDetailService.getOne(id);
+        if (projectDetail != null){
+            ProjectDetail projectDetailUpdate = new ProjectDetail();
             projectDetailUpdate.setState(true);
             projectDetailService.save(projectDetailUpdate);
             return ResponseEntity.ok().build();
         }else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @DeleteMapping(value = Constants.URI_PROJECT_DETAIL_ID)
+    public ResponseEntity<Object> deleteProjectDetails(@PathVariable("id") String id){
+        ProjectDetail projectDetail = projectDetailService.getOne(id);
+        if(projectDetail == null){
+            return ResponseEntity.notFound().build();
+        }
+        projectDetailService.delete(projectDetail);
+        return ResponseEntity.ok().build();
     }
 }

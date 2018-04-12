@@ -42,4 +42,9 @@ public class ProjectServiceImpl implements ProjectService{
         projectRepository.delete(project);
     }
 
+    @Override
+    public Project getOneByProjectName(String projectName) {
+        return projectRepository.getOneByProjectName(projectName);
+    }
+
 }

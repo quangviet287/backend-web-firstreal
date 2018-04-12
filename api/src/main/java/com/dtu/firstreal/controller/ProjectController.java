@@ -44,8 +44,13 @@ public class ProjectController {
         }
     }
     @PostMapping(value = Constants.URI_PROJECT)
-    public Project createProject(Project project){
-        return projectService.createProject(project);
+    public ResponseEntity<Object> createProject(Project project){
+        String projectName = project.getProjectName();
+        if(projectService.getOneByProjectName(projectName)==null){
+            projectService.createProject(project);
+            return ResponseEntity.ok().build();
+        }
+        return new ResponseEntity<>("Project was exits", HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping(value = Constants.URI_PROJECT_ID)

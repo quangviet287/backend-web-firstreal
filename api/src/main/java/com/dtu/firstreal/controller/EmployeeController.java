@@ -49,14 +49,8 @@ public class EmployeeController  {
         return new ResponseEntity<>("employee exits", HttpStatus.BAD_REQUEST);
     }
 
-//    @PostMapping(value = Constants.URI_EMPLOYEE)
-//    public void addEmployee(@RequestBody Employee employee){
-//        employeeService.createEmployee(employee);
-//    }
-
-
     @PutMapping(value = Constants.URI_EMPLOYEE_ID)
-    public ResponseEntity<Employee> update(@PathVariable(value = "id") String id, @Valid @RequestBody Employee employeeForm){
+    public ResponseEntity<Employee> updateInfor(@PathVariable(value = "id") String id, @Valid @RequestBody Employee employeeForm){
         Employee employee = employeeService.findEmployeeById(id);
         if(employee == null){
             return ResponseEntity.notFound().build();
@@ -71,7 +65,7 @@ public class EmployeeController  {
     }
 
     @DeleteMapping(value = Constants.URI_EMPLOYEE_ID)
-    public ResponseEntity<Employee> delete(@PathVariable("id") String id){
+    public ResponseEntity<Employee> deleteEmployee(@PathVariable("id") String id){
         Employee employee = employeeService.findEmployeeById(id);
         if(employee == null){
             return ResponseEntity.notFound().build();

@@ -6,7 +6,6 @@ import com.dtu.firstreal.service.ProjectDetailService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProjectDetailServiceImpl implements ProjectDetailService {
@@ -24,12 +23,22 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     }
 
     @Override
-    public Optional<ProjectDetail> getOne(String id) {
-        return projectDetailRepository.findById(id);
+    public ProjectDetail getOne(String id) {
+        return projectDetailRepository.getOne(id);
     }
 
     @Override
     public ProjectDetail save(ProjectDetail projectDetail) {
         return projectDetailRepository.save(projectDetail);
+    }
+
+    @Override
+    public void delete(ProjectDetail projectDetail) {
+        projectDetailRepository.delete(projectDetail);
+    }
+
+    @Override
+    public ProjectDetail getOneByName(String projectDetailName) {
+        return projectDetailRepository.getOneByProjectDetailName(projectDetailName);
     }
 }
