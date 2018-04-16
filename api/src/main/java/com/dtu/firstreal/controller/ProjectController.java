@@ -44,7 +44,7 @@ public class ProjectController {
         }
     }
     @PostMapping(value = Constants.URI_PROJECT)
-    public ResponseEntity<Object> createProject(Project project){
+    public ResponseEntity<Object> createProject(@Valid @RequestBody  Project project){
         String projectName = project.getProjectName();
         if(projectService.getOneByProjectName(projectName)==null){
             projectService.createProject(project);
