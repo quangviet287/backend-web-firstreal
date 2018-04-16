@@ -53,4 +53,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         return (Employee) employeeRepository.getOneByUsername(username);
     }
 
+    @Override
+    public Employee getEmployeeByUsernameAndPassword(String username, String password) {
+        return employeeRepository.getOneByUsernameAndPassword(username,password);
+    }
+
 }

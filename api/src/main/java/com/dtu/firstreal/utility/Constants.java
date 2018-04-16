@@ -14,6 +14,7 @@ public class Constants {
     public static final String URI_PROJECT_DETAIL_ID = "/detail/{id}";
     public static final String URI_PROJECT_DETAIL_ID_UPDATE = "detail/update/{id}";
     public static final String URI_CUSTOMER = "/customer";
+    public static final String URI_EMPLOYEE_LOGIN = "/login";
 
     private Constants() {
         throw new InstantiationError( "Must not instantiate this class" );

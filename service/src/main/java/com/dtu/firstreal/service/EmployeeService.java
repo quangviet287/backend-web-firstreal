@@ -12,4 +12,5 @@ public interface EmployeeService {
     Employee save(Employee employee);
     void delete(Employee employee);
     Employee getEmployeeByUserName(String username);
+    Employee getEmployeeByUsernameAndPassword(String username, String password);
 }
