@@ -1,7 +1,13 @@
 package com.dtu.firstreal.service;
 
-import com.dtu.firstreal.entity.Bill;
+import com.dtu.firstreal.entity.Transaction;
+
+import java.util.List;
 
 public interface TransactionService {
-    Bill save(Bill bill);
+    Transaction save(Transaction transaction);
+
+    List<Transaction> findAll();
+
+    Transaction getOneByProjectDetailsId(String projectDetailsId);
 }
