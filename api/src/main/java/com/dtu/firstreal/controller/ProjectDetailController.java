@@ -93,4 +93,12 @@ public class ProjectDetailController {
         projectDetailService.delete(projectDetail);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping(value = Constants.URI_PROJECT_DETAIL_STATISTICAL)
+    public ResponseEntity<Object> statistical(){
+        List<ProjectDetail> lists = projectDetailService.getByState();
+        if(lists == null){
+            return ResponseEntity.notFound().build();
+        }else return new ResponseEntity<>(lists, HttpStatus.OK);
+    }
 }

@@ -14,4 +14,6 @@ public interface ProjectDetailService {
     void delete(ProjectDetail projectDetail);
 
     ProjectDetail getOneByName(String projectDetailName);
+
+    List<ProjectDetail> getByState();
 }

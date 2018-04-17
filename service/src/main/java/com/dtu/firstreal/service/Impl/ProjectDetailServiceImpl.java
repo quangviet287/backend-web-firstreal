@@ -41,4 +41,10 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     public ProjectDetail getOneByName(String projectDetailName) {
         return projectDetailRepository.getOneByProjectDetailName(projectDetailName);
     }
+
+    @Override
+    public List<ProjectDetail> getByState() {
+        List<ProjectDetail> details = projectDetailRepository.getAllByState();
+        return details;
+    }
 }
