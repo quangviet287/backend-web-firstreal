@@ -16,4 +16,6 @@ public interface ProjectDetailService {
     ProjectDetail getOneByName(String projectDetailName);
 
     List<ProjectDetail> getByState();
+
+    List<ProjectDetail> getByEmployeeId(String id);
 }

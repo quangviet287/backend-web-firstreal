@@ -101,4 +101,12 @@ public class ProjectDetailController {
             return ResponseEntity.notFound().build();
         }else return new ResponseEntity<>(lists, HttpStatus.OK);
     }
+
+    @GetMapping(value = Constants.URI_PROJECT_DETAIL_EMPLOYEE)
+    public ResponseEntity<Object> statisticalByEmployee(@PathVariable("id") String id){
+        List<ProjectDetail> details = projectDetailService.getByEmployeeId(id);
+        if(details == null){
+            return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
+        }else return new ResponseEntity<>(details,HttpStatus.OK);
+    }
 }

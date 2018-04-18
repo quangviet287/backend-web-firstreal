@@ -3,6 +3,7 @@ package com.dtu.firstreal.repository;
 import com.dtu.firstreal.entity.ProjectDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface ProjectDetailRepository extends JpaRepository<ProjectDetail, St
 
     @Query(value = "select p from ProjectDetail p where p.state=true")
     List<ProjectDetail> getAllByState();
+
+    @Query(value = "select p from ProjectDetail p where p.state=true and p.employee = :employee")
+    List<ProjectDetail> getAllByStateAndEmployee(@Param("employee") String employee);
 }

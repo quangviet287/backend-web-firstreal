@@ -47,4 +47,9 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         List<ProjectDetail> details = projectDetailRepository.getAllByState();
         return details;
     }
+
+    @Override
+    public List<ProjectDetail> getByEmployeeId(String id) {
+        return projectDetailRepository.getAllByStateAndEmployee(id);
+    }
 }
