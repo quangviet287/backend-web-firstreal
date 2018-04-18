@@ -52,4 +52,9 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     public List<ProjectDetail> getByEmployeeId(String id) {
         return projectDetailRepository.getAllByStateAndEmployee(id);
     }
+
+    @Override
+    public List<ProjectDetail> getAllByDirection(String direction) {
+        return projectDetailRepository.getAllByDirection(direction);
+    }
 }

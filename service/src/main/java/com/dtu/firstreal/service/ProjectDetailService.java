@@ -18,4 +18,6 @@ public interface ProjectDetailService {
     List<ProjectDetail> getByState();
 
     List<ProjectDetail> getByEmployeeId(String id);
+
+    List<ProjectDetail> getAllByDirection(String direction);
 }

@@ -19,4 +19,6 @@ public interface ProjectDetailRepository extends JpaRepository<ProjectDetail, St
 
     @Query(value = "select p from ProjectDetail p where p.state=true and p.employee = :employee")
     List<ProjectDetail> getAllByStateAndEmployee(@Param("employee") String employee);
+
+    List<ProjectDetail> getAllByDirection(String direction);
 }
