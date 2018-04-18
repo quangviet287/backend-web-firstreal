@@ -16,15 +16,11 @@ public class Address implements Serializable {
     @Column(name = "city")
     private String city;
 
-    @Column(name = "country")
-    private String country;
-
     public Address() {
     }
 
-    public Address(String city, String country) {
+    public Address(String city) {
         this.city = city;
-        this.country = country;
     }
 
     public String getId() {
@@ -37,13 +33,5 @@ public class Address implements Serializable {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 }
