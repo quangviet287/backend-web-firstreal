@@ -21,4 +21,9 @@ public interface ProjectDetailRepository extends JpaRepository<ProjectDetail, St
     List<ProjectDetail> getAllByStateAndEmployee(@Param("employee") String employee);
 
     List<ProjectDetail> getAllByDirection(String direction);
+
+    @Query(value = "select p from ProjectDetail p where p.price <= :price")
+    List<ProjectDetail> getAllByPrice(@Param("price") String price);
+
+    List<ProjectDetail> getAllBySize(String size);
 }

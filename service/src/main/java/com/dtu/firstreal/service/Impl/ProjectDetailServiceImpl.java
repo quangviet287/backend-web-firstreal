@@ -57,4 +57,14 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     public List<ProjectDetail> getAllByDirection(String direction) {
         return projectDetailRepository.getAllByDirection(direction);
     }
+
+    @Override
+    public List<ProjectDetail> getAllByPrice(String price) {
+        return projectDetailRepository.getAllByPrice(price);
+    }
+
+    @Override
+    public List<ProjectDetail> getAllBySize(String size) {
+        return projectDetailRepository.getAllBySize(size);
+    }
 }

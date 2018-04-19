@@ -20,4 +20,8 @@ public interface ProjectDetailService {
     List<ProjectDetail> getByEmployeeId(String id);
 
     List<ProjectDetail> getAllByDirection(String direction);
+
+    List<ProjectDetail> getAllByPrice(String price);
+
+    List<ProjectDetail> getAllBySize(String size);
 }
