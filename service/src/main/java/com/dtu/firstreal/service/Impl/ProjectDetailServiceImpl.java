@@ -24,7 +24,7 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
 
     @Override
     public ProjectDetail getOne(String id) {
-        return projectDetailRepository.getOne(id);
+        return projectDetailRepository.findById(id).get();
     }
 
     @Override
@@ -64,7 +64,7 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     }
 
     @Override
-    public List<ProjectDetail> getAllBySize(String size) {
-        return projectDetailRepository.getAllBySize(size);
+    public List<ProjectDetail> getAllBySize(int size) {
+        return projectDetailRepository.findAllBySize(size);
     }
 }

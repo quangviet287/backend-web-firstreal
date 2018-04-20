@@ -25,5 +25,7 @@ public interface ProjectDetailRepository extends JpaRepository<ProjectDetail, St
     @Query(value = "select p from ProjectDetail p where p.price <= :price")
     List<ProjectDetail> getAllByPrice(@Param("price") String price);
 
-    List<ProjectDetail> getAllBySize(String size);
+    List<ProjectDetail> findAllBySize(int size);
+
+
 }

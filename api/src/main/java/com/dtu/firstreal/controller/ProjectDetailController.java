@@ -287,16 +287,16 @@ public class ProjectDetailController {
         }
     }
 
-    @GetMapping(value = Constants.URI_PROJECT_DETAIL_PRICE)
-    public ResponseEntity<Object> getAllByPrice(@PathVariable("price") String price){
-        List<ProjectDetail> details = projectDetailService.getAllByPrice(price);
-        if(details == null){
-            return new ResponseEntity<>("no detail found", HttpStatus.NOT_FOUND);
-        }return new ResponseEntity<>(details, HttpStatus.OK);
-    }
+//    @GetMapping(value = Constants.URI_PROJECT_DETAIL_PRICE)
+//    public ResponseEntity<Object> getAllByPrice(@PathVariable("price") String price){
+//        List<ProjectDetail> details = projectDetailService.getAllByPrice(price);
+//        if(details == null){
+//            return new ResponseEntity<>("no detail found", HttpStatus.NOT_FOUND);
+//        }return new ResponseEntity<>(details, HttpStatus.OK);
+//    }
 
     @GetMapping(value = Constants.URI_PROJECT_DETAIL_SIZE)
-    public ResponseEntity<Object> getAllBySize(@PathVariable("size") String size){
+    public ResponseEntity<Object> getAllBySize(@PathVariable("size") int size){
         List<ProjectDetail> details = projectDetailService.getAllBySize(size);
         if(details == null){
             return new ResponseEntity<>("no detail found", HttpStatus.NOT_FOUND);

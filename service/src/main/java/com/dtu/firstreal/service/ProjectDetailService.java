@@ -23,5 +23,5 @@ public interface ProjectDetailService {
 
     List<ProjectDetail> getAllByPrice(String price);
 
-    List<ProjectDetail> getAllBySize(String size);
+    List<ProjectDetail> getAllBySize(int size);
 }
