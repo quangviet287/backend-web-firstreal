@@ -24,8 +24,5 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.findAll();
     }
 
-    @Override
-    public Transaction getOneByProjectDetailsId(String projectDetailsId) {
-        return transactionRepository.getOneByProjectDetailId(projectDetailsId);
-    }
+
 }

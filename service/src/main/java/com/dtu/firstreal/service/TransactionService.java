@@ -9,5 +9,4 @@ public interface TransactionService {
 
     List<Transaction> findAll();
 
-    Transaction getOneByProjectDetailsId(String projectDetailsId);
 }

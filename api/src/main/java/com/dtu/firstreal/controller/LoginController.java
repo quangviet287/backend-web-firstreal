@@ -1,5 +1,6 @@
 package com.dtu.firstreal.controller;
 
+import Model.LoginDto;
 import com.dtu.firstreal.entity.Employee;
 import com.dtu.firstreal.service.EmployeeService;
 import com.dtu.firstreal.utility.Constants;
@@ -20,8 +21,10 @@ public class LoginController {
     EmployeeService employeeService;
 
     @PostMapping(value = Constants.URI_EMPLOYEE_LOGIN)
-    public ResponseEntity<Object> login(@Valid @RequestBody Employee employeeLogin){
-        Employee employee = employeeService.getEmployeeByUsernameAndPassword(employeeLogin.getUsername(),employeeLogin.getPassword());
+    public ResponseEntity<Object> login(@Valid @RequestBody LoginDto loginDto){
+        String username = loginDto.getUsername();
+        String password = loginDto.getPassword();
+        Employee employee = employeeService.getEmployeeByUsernameAndPassword(username,password);
         if(employee == null){
             return ResponseEntity.notFound().build();
         }else return ResponseEntity.ok().build();

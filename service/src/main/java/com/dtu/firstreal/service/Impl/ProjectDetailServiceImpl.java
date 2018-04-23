@@ -67,4 +67,5 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     public List<ProjectDetail> getAllBySize(int size) {
         return projectDetailRepository.findAllBySize(size);
     }
+
 }
