@@ -68,4 +68,9 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         return projectDetailRepository.findAllBySize(size);
     }
 
+    @Override
+    public List<ProjectDetail> findAllBySizeAndDirectionAndPrice(int size, String direction, String price) {
+        return projectDetailRepository.findAllBySizeAndDirectionAndPrice(size,direction,price);
+    }
+
 }

@@ -19,9 +19,10 @@ public class Constants {
     public static final String URI_PROJECT_DETAIL_STATISTICAL = "/statistical";
     public static final String URI_PROJECT_DETAIL_EMPLOYEE  ="/statistical/{id}";
     public static final String URI_PROJECT_DETAIL_DIRECTION = "/detail/direction/{age}+{sex}";
-    public static final String URI_PROJECT_DETAIL_PRICE = "/detail/search/price/{price}";
-    public static final String URI_PROJECT_DETAIL_SIZE = "/detail/search/size/{size}";
+    public static final String URI_PROJECT_DETAIL_PRICE = "/search/price/{price}";
+    public static final String URI_PROJECT_DETAIL_SIZE = "/search/size/{size}";
     public static final String URI_ADVISORY = "/advisory";
+    public static final String URI_PROJECT_DETAIL_SEARCH = "/search/{size}+{direction}+{price}";
 
     private Constants() {
         throw new InstantiationError( "Must not instantiate this class" );
