@@ -1,8 +1,8 @@
 package com.dtu.firstreal.controller;
 
 import com.dtu.firstreal.entity.ProjectDetail;
+import com.dtu.firstreal.service.EmployeeService;
 import com.dtu.firstreal.service.ProjectDetailService;
-import com.dtu.firstreal.utility.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +14,17 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = Constants.URI_API)
+@RequestMapping(value = "/detail")
 public class ProjectDetailController {
     private static final Logger log = LoggerFactory.getLogger(ProjectDetailController.class);
 
     @Autowired
     ProjectDetailService projectDetailService;
 
-    @GetMapping(value = Constants.URI_PROJECT_DETAIL)
+    @Autowired
+    EmployeeService employeeService;
+
+    @GetMapping(value = "/getAll")
     public ResponseEntity<Object> getAllProjectDetail(){
         log.debug("Get all details");
         List<ProjectDetail> projectDetails = projectDetailService.findAllDetail();
@@ -32,7 +35,7 @@ public class ProjectDetailController {
         return new ResponseEntity<>(projectDetails,HttpStatus.OK);
     }
 
-    @GetMapping(value = Constants.URI_PROJECT_DETAIL_ID)
+    @GetMapping(value = "/getOne/{id}")
     public ResponseEntity<Object> getOneProjectDetail(@PathVariable("id") String id){
         ProjectDetail projectDetail = projectDetailService.getOne(id);
         if (projectDetail == null){
@@ -42,7 +45,7 @@ public class ProjectDetailController {
         }
     }
 
-    @PostMapping(value = Constants.URI_PROJECT_DETAIL)
+    @PostMapping(value = "/create")
     public ResponseEntity<Object> createProjectDetails(@Valid @RequestBody ProjectDetail projectDetail){
         String projectDetailName = projectDetail.getProjectDetailName();
         if(projectDetailService.getOneByName(projectDetailName)==null){
@@ -53,7 +56,7 @@ public class ProjectDetailController {
     }
 
 
-    @PutMapping(value = Constants.URI_PROJECT_DETAIL_ID)
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<Object> updateProjectDetails(@PathVariable("id") String id, @Valid @RequestBody ProjectDetail projectDetailForm){
         ProjectDetail projectDetail = projectDetailService.getOne(id);
         if(projectDetail == null){
@@ -70,7 +73,7 @@ public class ProjectDetailController {
         }
     }
 
-    @DeleteMapping(value = Constants.URI_PROJECT_DETAIL_ID)
+    @DeleteMapping(value = "/delete")
     public ResponseEntity<Object> deleteProjectDetails(@PathVariable("id") String id){
         ProjectDetail projectDetail = projectDetailService.getOne(id);
         if(projectDetail == null){
@@ -78,21 +81,5 @@ public class ProjectDetailController {
         }
         projectDetailService.delete(projectDetail);
         return ResponseEntity.ok().build();
-    }
-
-    @GetMapping(value = Constants.URI_PROJECT_DETAIL_STATISTICAL)
-    public ResponseEntity<Object> statistical(){
-        List<ProjectDetail> lists = projectDetailService.getByState();
-        if(lists == null){
-            return ResponseEntity.notFound().build();
-        }else return new ResponseEntity<>(lists, HttpStatus.OK);
-    }
-
-    @GetMapping(value = Constants.URI_PROJECT_DETAIL_EMPLOYEE)
-    public ResponseEntity<Object> statisticalByEmployee(@PathVariable("id") String id){
-        List<ProjectDetail> details = projectDetailService.getByEmployeeId(id);
-        if(details == null){
-            return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
-        }else return new ResponseEntity<>(details,HttpStatus.OK);
     }
 }

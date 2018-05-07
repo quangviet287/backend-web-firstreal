@@ -1,7 +1,9 @@
 package com.dtu.firstreal.service.Impl;
 
+import com.dtu.firstreal.entity.Employee;
 import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.repository.ProjectDetailRepository;
+import com.dtu.firstreal.service.EmployeeService;
 import com.dtu.firstreal.service.ProjectDetailService;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,8 @@ import java.util.List;
 public class ProjectDetailServiceImpl implements ProjectDetailService {
 
     private final ProjectDetailRepository projectDetailRepository;
+
+    private EmployeeService employeeService;
 
     public ProjectDetailServiceImpl(ProjectDetailRepository projectDetailRepository) {
         this.projectDetailRepository = projectDetailRepository;
@@ -49,8 +53,13 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     }
 
     @Override
-    public List<ProjectDetail> getByEmployeeId(String id) {
-        return projectDetailRepository.getAllByStateAndEmployee(id);
+    public List<ProjectDetail> getAllSoldByEmployee(Employee employee) {
+            return projectDetailRepository.getAllByStateAndEmployee(employee);
+    }
+
+    @Override
+    public List<ProjectDetail> getAllByEmployee(Employee employee) {
+        return projectDetailRepository.getAllEmployee(employee);
     }
 
     @Override

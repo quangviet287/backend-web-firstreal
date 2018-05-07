@@ -2,7 +2,6 @@ package com.dtu.firstreal.controller;
 
 import com.dtu.firstreal.entity.Project;
 import com.dtu.firstreal.service.ProjectService;
-import com.dtu.firstreal.utility.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +13,14 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = Constants.URI_API)
+@RequestMapping("/project")
 public class ProjectController {
     private static final Logger log = LoggerFactory.getLogger(ProjectController.class);
 
     @Autowired
     ProjectService projectService;
 
-    @GetMapping(value = Constants.URI_PROJECTS)
+    @GetMapping(value = "/getAll")
     public ResponseEntity<Object> getAllProject() {
 
         log.debug("Get all project");
@@ -34,7 +33,7 @@ public class ProjectController {
 
         return new ResponseEntity<>(projects, HttpStatus.OK);
     }
-    @GetMapping(value = Constants.URI_PROJECT_ID)
+    @GetMapping(value = "/getOne/{id}")
     public ResponseEntity<Object> getOneProject(@PathVariable("id") String id){
         Project project = projectService.getOne(id);
         if (project == null){
@@ -43,7 +42,7 @@ public class ProjectController {
             return new ResponseEntity<>(project, HttpStatus.OK);
         }
     }
-    @PostMapping(value = Constants.URI_PROJECT)
+    @PostMapping(value = "/create")
     public ResponseEntity<Object> createProject(@Valid @RequestBody  Project project){
         String projectName = project.getProjectName();
         if(projectService.getOneByProjectName(projectName)==null){
@@ -53,7 +52,7 @@ public class ProjectController {
         return new ResponseEntity<>("Project was exits", HttpStatus.BAD_REQUEST);
     }
 
-    @PutMapping(value = Constants.URI_PROJECT_ID)
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<Object> updateProject(@PathVariable(value = "id") String id, @Valid @RequestBody Project projectForm){
         Project project = projectService.getOne(id);
         if (project == null){
@@ -65,7 +64,7 @@ public class ProjectController {
         Project projectUpdate = projectService.updateProject(project);
         return new ResponseEntity<>(projectUpdate, HttpStatus.OK);
     }
-    @DeleteMapping(value = Constants.URI_PROJECT_ID)
+    @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<Object> deleteProject(@PathVariable(value = "id") String id){
         Project project = projectService.getOne(id);
         if(project == null){

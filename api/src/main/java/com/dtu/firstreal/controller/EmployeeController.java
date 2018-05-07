@@ -2,7 +2,6 @@ package com.dtu.firstreal.controller;
 
 import com.dtu.firstreal.entity.Employee;
 import com.dtu.firstreal.service.EmployeeService;
-import com.dtu.firstreal.utility.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +13,14 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = Constants.URI_API)
+@RequestMapping("/employee/")
 public class EmployeeController  {
     private static final Logger log = LoggerFactory.getLogger(EmployeeController.class);
 
     @Autowired
     EmployeeService employeeService;
 
-    @GetMapping(value = Constants.URI_EMPLOYEES)
+    @GetMapping(value = "/getAll")
     public ResponseEntity<Object> getAllEmployees(){
         log.debug("Get all employees");
 
@@ -32,13 +31,13 @@ public class EmployeeController  {
         }
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
-    @GetMapping(value = Constants.URI_EMPLOYEE_ID)
+    @GetMapping(value = "/getOne/{id}")
     public ResponseEntity<Object> getEmployeeById(@PathVariable("id") String id){
         Employee employee = employeeService.findEmployeeById(id);
         return new ResponseEntity<>(employee,HttpStatus.OK);
     }
 
-    @PostMapping(value = Constants.URI_EMPLOYEE)
+    @PostMapping(value = "/create")
     public ResponseEntity<Object> createEmployee(@RequestBody Employee employee){
         String username = employee.getUsername();
         Employee emp = employeeService.getEmployeeByUserName(username);
@@ -49,7 +48,7 @@ public class EmployeeController  {
         return new ResponseEntity<>("employee exits", HttpStatus.BAD_REQUEST);
     }
 
-    @PutMapping(value = Constants.URI_EMPLOYEE_ID)
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<Employee> updateInfor(@PathVariable(value = "id") String id, @Valid @RequestBody Employee employeeForm){
         Employee employee = employeeService.findEmployeeById(id);
         if(employee == null){
@@ -64,7 +63,7 @@ public class EmployeeController  {
         return ResponseEntity.ok(employeeUpdate);
     }
 
-    @DeleteMapping(value = Constants.URI_EMPLOYEE_ID)
+    @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<Employee> deleteEmployee(@PathVariable("id") String id){
         Employee employee = employeeService.findEmployeeById(id);
         if(employee == null){
@@ -74,7 +73,7 @@ public class EmployeeController  {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping(value = Constants.URI_EMPLOYEE_USERNAME)
+    @GetMapping(value = "/getOne/username/{username}")
     public ResponseEntity<Object> getEmployeeByUserName(@PathVariable("username") String username){
         Employee employee = employeeService.getEmployeeByUserName(username);
         if(employee == null){

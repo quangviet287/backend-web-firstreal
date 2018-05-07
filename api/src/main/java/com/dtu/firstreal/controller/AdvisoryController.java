@@ -3,24 +3,25 @@ package com.dtu.firstreal.controller;
 import Model.AdvisoryDto;
 import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.service.ProjectDetailService;
-import com.dtu.firstreal.utility.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/advisory")
 public class AdvisoryController {
 
     @Autowired
     ProjectDetailService projectDetailService;
 
-    @PostMapping(value = Constants.URI_ADVISORY)
+    @PostMapping
     public ResponseEntity<Object> getDetailsByDirection(@Valid @RequestBody AdvisoryDto advisoryDto){
         String age = advisoryDto.getAge();
         Boolean sex = advisoryDto.getSex();
