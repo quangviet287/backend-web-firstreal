@@ -14,9 +14,11 @@ public class Project implements Serializable {
     @Column(name = "project_name")
     private String projectName;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_address")
-    private Address idAddress;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id_address")
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     @Column(name = "description")
     private String description;
@@ -24,19 +26,19 @@ public class Project implements Serializable {
     @Column(name = "image_profile_url")
     private String imageProfileUrl;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_project_type")
-    private ProjectType idProjectType;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "project_type_id")
+    private ProjectType projectType;
 
     public Project() {
     }
 
-    public Project(String projectName, Address idAddress, String description, String imageProfileUrl, ProjectType idProjectType) {
+    public Project(String projectName, Address address, String description, String imageProfileUrl, ProjectType idProjectType) {
         this.projectName = projectName;
-        this.idAddress = idAddress;
+        this.address = address;
         this.description = description;
         this.imageProfileUrl = imageProfileUrl;
-        this.idProjectType = idProjectType;
+        this.projectType = idProjectType;
     }
 
     public String getId() {
@@ -51,12 +53,12 @@ public class Project implements Serializable {
         this.projectName = projectName;
     }
 
-    public Address getIdAddress() {
-        return idAddress;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setIdAddress(Address idAddress) {
-        this.idAddress = idAddress;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getDescription() {
@@ -75,11 +77,11 @@ public class Project implements Serializable {
         this.imageProfileUrl = imageProfileUrl;
     }
 
-    public ProjectType getIdProjectType() {
-        return idProjectType;
+    public ProjectType getProjectType() {
+        return projectType;
     }
 
-    public void setIdProjectType(ProjectType idProjectType) {
-        this.idProjectType = idProjectType;
+    public void setProjectType(ProjectType projectType) {
+        this.projectType = projectType;
     }
 }

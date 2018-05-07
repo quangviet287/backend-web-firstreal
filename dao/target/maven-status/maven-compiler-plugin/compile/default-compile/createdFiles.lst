@@ -1,0 +1,15 @@
+com\dtu\firstreal\entity\ProjectDetail.class
+com\dtu\firstreal\repository\ProjectDetailRepository.class
+com\dtu\firstreal\entity\Advertiserment.class
+com\dtu\firstreal\repository\EmployeeRepository.class
+com\dtu\firstreal\entity\Address.class
+com\dtu\firstreal\entity\Project.class
+com\dtu\firstreal\entity\Advisory.class
+com\dtu\firstreal\repository\ProjectRepository.class
+com\dtu\firstreal\entity\ProjectType.class
+com\dtu\firstreal\entity\Transaction.class
+com\dtu\firstreal\repository\TransactionRepository.class
+com\dtu\firstreal\entity\Employee.class
+com\dtu\firstreal\entity\Customer.class
+com\dtu\firstreal\entity\Role.class
+com\dtu\firstreal\repository\CustomerRepository.class
