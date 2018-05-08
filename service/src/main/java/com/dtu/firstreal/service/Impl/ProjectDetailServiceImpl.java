@@ -1,19 +1,47 @@
 package com.dtu.firstreal.service.Impl;
 
 import com.dtu.firstreal.entity.Employee;
+import com.dtu.firstreal.entity.Project;
 import com.dtu.firstreal.entity.ProjectDetail;
+import com.dtu.firstreal.repository.EmployeeRepository;
 import com.dtu.firstreal.repository.ProjectDetailRepository;
+import com.dtu.firstreal.repository.ProjectRepository;
 import com.dtu.firstreal.service.EmployeeService;
 import com.dtu.firstreal.service.ProjectDetailService;
+import com.dtu.firstreal.service.dto.request.ProjectDetailDto;
+import com.dtu.firstreal.service.dto.response.ProjectDetailResponse;
+import com.dtu.firstreal.service.exception.EmployeeNotFoundException;
+import com.dtu.firstreal.service.exception.ProjectNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Base64Utils;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class ProjectDetailServiceImpl implements ProjectDetailService {
 
+    Logger logger = LoggerFactory.getLogger(ProjectDetailServiceImpl.class);
+    @Value("${image.directory}")
+    private String imageDirectory;
     private final ProjectDetailRepository projectDetailRepository;
+    @Autowired
+    private  ProjectRepository projectRepository;
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
+    @Autowired
+    private Environment env;
     private EmployeeService employeeService;
 
     public ProjectDetailServiceImpl(ProjectDetailRepository projectDetailRepository) {
@@ -82,4 +110,67 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
         return projectDetailRepository.findAllBySizeAndDirectionAndPrice(size,direction,price);
     }
 
+    @Override
+    public ProjectDetailResponse createProject(ProjectDetailDto projectDetailDto) {
+
+        ProjectDetail projectDetail = new ProjectDetail();
+        Project project = projectRepository.findById(projectDetailDto.getProjectId()).orElseThrow(()-> new ProjectNotFoundException());
+        Employee employee = employeeRepository.findById(projectDetailDto.getEmployeeId()).orElseThrow(()-> new EmployeeNotFoundException());
+        String imageDirectory = getImageDirectory();
+
+        String imageName = System.currentTimeMillis() +"" + new Random().nextInt() + "." + projectDetailDto.getImage().getType();
+        projectDetail.setEmployee(employee);
+        projectDetail.setProject(project);
+        projectDetail.setImageProjectDetailUrl(imageDirectory+imageName);
+        projectDetail.setState(projectDetailDto.getState());
+        projectDetail.setLocation(projectDetailDto.getLocation());
+        projectDetail.setDirection(projectDetailDto.getDirection());
+        projectDetail.setSize(projectDetailDto.getSize());
+        projectDetail.setPrice(projectDetailDto.getPrice());
+        projectDetail.setProjectDetailName(projectDetailDto.getProjectDetailName());
+
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new ByteArrayInputStream(Base64Utils.decodeFromString(projectDetailDto.getImage().getImage())))
+            ;
+            ImageIO.write(img, projectDetailDto.getImage().getType(), new FileOutputStream(projectDetail.getImageProjectDetailUrl()));
+        } catch (IOException e) {
+            logger.error(e.getMessage(), e);
+        }
+
+
+        projectDetail = projectDetailRepository.save(projectDetail);
+         return new ProjectDetailResponse(projectDetail.getId());
+
+    }
+
+    @Override
+    public ProjectDetailResponse updateProject(ProjectDetailDto projectDetailDto) {
+        ProjectDetail projectDetailUpdate = new ProjectDetail();
+        String imageDirectory = getImageDirectory();
+
+        String imageName = System.currentTimeMillis() +"" + new Random().nextInt() + "." + projectDetailDto.getImage().getType();
+        projectDetailUpdate.setImageProjectDetailUrl(imageDirectory+imageName);
+        projectDetailUpdate.setLocation(projectDetailDto.getLocation());
+        projectDetailUpdate.setDirection(projectDetailDto.getDirection());
+        projectDetailUpdate.setSize(projectDetailDto.getSize());
+        projectDetailUpdate.setPrice(projectDetailDto.getPrice());
+        projectDetailUpdate.setProjectDetailName(projectDetailDto.getProjectDetailName());
+
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new ByteArrayInputStream(Base64Utils.decodeFromString(projectDetailDto.getImage().getImage())))
+            ;
+            ImageIO.write(img, projectDetailDto.getImage().getType(), new FileOutputStream(projectDetailUpdate.getImageProjectDetailUrl()));
+        } catch (IOException e) {
+            logger.error(e.getMessage(), e);
+        }
+
+        projectDetailUpdate = projectDetailRepository.save(projectDetailUpdate);
+        return new ProjectDetailResponse(projectDetailUpdate.getId());
+    }
+
+    private String getImageDirectory() {
+        return env.getProperty("image.directory");
+    }
 }
