@@ -87,7 +87,36 @@ public class ProjectDetailController {
         if (projectDetail == null){
             return ResponseEntity.notFound().build();
         }else {
-            return new ResponseEntity<>(projectDetail, HttpStatus.OK);
+            ProjectDetailDtoResponse projectDetailDtoResponse = new ProjectDetailDtoResponse();
+            ImageDto imageDto = new ImageDto();
+            projectDetailDtoResponse.setImage(imageDto);
+            projectDetailDtoResponse.setEmployeeId(projectDetail.getEmployee().getId());
+            projectDetailDtoResponse.setProjectId(projectDetail.getProject().getId());
+            projectDetailDtoResponse.setDirection(projectDetail.getDirection());
+            projectDetailDtoResponse.setLocation(projectDetail.getLocation());
+            projectDetailDtoResponse.setPrice(projectDetail.getPrice());
+            projectDetailDtoResponse.setSate(projectDetail.isState());
+            projectDetailDtoResponse.setSize(projectDetail.getSize());
+            projectDetailDtoResponse.setProjectDetailName(projectDetail.getProjectDetailName());
+            projectDetailDtoResponse.setProjectDetailId(projectDetail.getId());
+            try{
+
+                String imageType = projectDetail.getImageProjectDetailUrl().substring(projectDetail.getImageProjectDetailUrl().lastIndexOf(".")+1);
+                BufferedImage originalImage =
+                        ImageIO.read(new File(projectDetail.getImageProjectDetailUrl()));
+
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ImageIO.write( originalImage, imageType, baos );
+                baos.flush();
+                byte[] imageInByte = baos.toByteArray();
+                imageDto.setImage(Base64Utils.encodeToString(imageInByte));
+                imageDto.setType(imageType);
+                baos.close();
+
+            }catch(IOException e){
+                System.out.println(e.getMessage());
+            }
+            return new ResponseEntity<>(projectDetailDtoResponse, HttpStatus.OK);
         }
     }
 
@@ -98,7 +127,6 @@ public class ProjectDetailController {
             return ResponseEntity.badRequest().build();
         }
         return new ResponseEntity<>(projectDetailService.createProject(projectDetail), HttpStatus.OK);
-      //  return new ResponseEntity<>("Project details exits", HttpStatus.BAD_REQUEST);
     }
 
 

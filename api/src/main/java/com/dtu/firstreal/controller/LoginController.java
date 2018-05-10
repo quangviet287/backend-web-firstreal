@@ -1,6 +1,6 @@
 package com.dtu.firstreal.controller;
 
-import Model.LoginDto;
+import com.dtu.firstreal.service.dto.request.LoginDto;
 import com.dtu.firstreal.entity.Employee;
 import com.dtu.firstreal.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.dtu.firstreal.controller;
 
-import Model.AdvisoryDto;
+import com.dtu.firstreal.service.dto.request.AdvisoryDto;
 import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.service.ProjectDetailService;
 import org.springframework.beans.factory.annotation.Autowired;

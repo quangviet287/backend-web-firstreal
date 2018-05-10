@@ -1,6 +1,8 @@
 package com.dtu.firstreal.service;
 
 import com.dtu.firstreal.entity.Employee;
+import com.dtu.firstreal.service.dto.request.EmployeeDto;
+import com.dtu.firstreal.service.dto.response.EmployeeResponse;
 
 import java.util.List;
 
@@ -13,4 +15,5 @@ public interface EmployeeService {
     void delete(Employee employee);
     Employee getEmployeeByUserName(String username);
     Employee getEmployeeByUsernameAndPassword(String username, String password);
+    EmployeeResponse create(EmployeeDto employeeDto);
 }

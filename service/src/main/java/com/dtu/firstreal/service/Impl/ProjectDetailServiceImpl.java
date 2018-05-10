@@ -143,33 +143,6 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
          return new ProjectDetailResponse(projectDetail.getId());
 
     }
-
-    @Override
-    public ProjectDetailResponse updateProject(ProjectDetailDto projectDetailDto) {
-        ProjectDetail projectDetailUpdate = new ProjectDetail();
-        String imageDirectory = getImageDirectory();
-
-        String imageName = System.currentTimeMillis() +"" + new Random().nextInt() + "." + projectDetailDto.getImage().getType();
-        projectDetailUpdate.setImageProjectDetailUrl(imageDirectory+imageName);
-        projectDetailUpdate.setLocation(projectDetailDto.getLocation());
-        projectDetailUpdate.setDirection(projectDetailDto.getDirection());
-        projectDetailUpdate.setSize(projectDetailDto.getSize());
-        projectDetailUpdate.setPrice(projectDetailDto.getPrice());
-        projectDetailUpdate.setProjectDetailName(projectDetailDto.getProjectDetailName());
-
-        BufferedImage img = null;
-        try {
-            img = ImageIO.read(new ByteArrayInputStream(Base64Utils.decodeFromString(projectDetailDto.getImage().getImage())))
-            ;
-            ImageIO.write(img, projectDetailDto.getImage().getType(), new FileOutputStream(projectDetailUpdate.getImageProjectDetailUrl()));
-        } catch (IOException e) {
-            logger.error(e.getMessage(), e);
-        }
-
-        projectDetailUpdate = projectDetailRepository.save(projectDetailUpdate);
-        return new ProjectDetailResponse(projectDetailUpdate.getId());
-    }
-
     private String getImageDirectory() {
         return env.getProperty("image.directory");
     }
