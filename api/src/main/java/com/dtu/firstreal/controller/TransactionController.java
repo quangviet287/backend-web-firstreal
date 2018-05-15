@@ -4,6 +4,7 @@ import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.entity.Transaction;
 import com.dtu.firstreal.service.ProjectDetailService;
 import com.dtu.firstreal.service.TransactionService;
+import com.dtu.firstreal.service.dto.request.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,5 +47,10 @@ public class TransactionController {
         }else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PostMapping(value = "/save")
+    public ResponseEntity<?> saveTransaction(@Valid @RequestBody CustomerDto customerDto){
+        return ResponseEntity.ok().build();
     }
 }
