@@ -12,4 +12,6 @@ public interface TransactionService {
 
     Transaction create(CustomerDto customerDto, String projectDetailId);
 
+    void destroy(String transactionId, String customerId);
+
 }

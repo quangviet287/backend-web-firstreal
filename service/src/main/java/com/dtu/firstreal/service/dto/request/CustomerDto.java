@@ -2,7 +2,7 @@ package com.dtu.firstreal.service.dto.request;
 
 public class CustomerDto {
     private String customerName;
-    private String age;
+    private int age;
     private Boolean sex;
     private String phoneNumber;
 
@@ -18,7 +18,7 @@ public class CustomerDto {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

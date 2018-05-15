@@ -49,8 +49,15 @@ public class TransactionController {
         }
     }
 
-    @PostMapping(value = "/save")
-    public ResponseEntity<?> saveTransaction(@Valid @RequestBody CustomerDto customerDto){
+    @PostMapping(value = "/save/{projectDetailId}")
+    public ResponseEntity<?> saveTransaction(@Valid @RequestBody CustomerDto customerDto, @PathVariable("projectDetailId") String projectDetailId){
+        transactionService.create(customerDto,projectDetailId);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping(value = "/destroy/{transactionId}+{customerId}")
+    public ResponseEntity<?> destroyTransaction(@PathVariable("transactionId") String transactionId, @PathVariable("customerId") String customerId){
+        transactionService.destroy(transactionId, customerId);
         return ResponseEntity.ok().build();
     }
 }
