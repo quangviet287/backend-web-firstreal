@@ -5,6 +5,7 @@ import com.dtu.firstreal.entity.Transaction;
 import com.dtu.firstreal.service.ProjectDetailService;
 import com.dtu.firstreal.service.TransactionService;
 import com.dtu.firstreal.service.dto.request.CustomerDto;
+import com.dtu.firstreal.service.dto.response.TransactionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,9 +51,9 @@ public class TransactionController {
     }
 
     @PostMapping(value = "/save/{projectDetailId}")
-    public ResponseEntity<?> saveTransaction(@Valid @RequestBody CustomerDto customerDto, @PathVariable("projectDetailId") String projectDetailId){
-        transactionService.create(customerDto,projectDetailId);
-        return ResponseEntity.ok().build();
+    public TransactionResponse saveTransaction(@Valid @RequestBody CustomerDto customerDto, @PathVariable("projectDetailId") String projectDetailId){
+        Transaction transaction = transactionService.create(customerDto,projectDetailId);
+        return new TransactionResponse(transaction.getId());
     }
 
     @DeleteMapping(value = "/destroy/{transactionId}+{customerId}")
