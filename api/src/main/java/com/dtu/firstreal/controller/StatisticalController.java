@@ -45,7 +45,7 @@ public class StatisticalController {
             projectDetailDtoResponse.setDirection(projectDetail.getDirection());
             projectDetailDtoResponse.setLocation(projectDetail.getLocation());
             projectDetailDtoResponse.setPrice(projectDetail.getPrice());
-            projectDetailDtoResponse.setSate(projectDetail.isState());
+            projectDetailDtoResponse.setState(projectDetail.isState());
             projectDetailDtoResponse.setSize(projectDetail.getSize());
             projectDetailDtoResponse.setProjectDetailName(projectDetail.getProjectDetailName());
             projectDetailDtoResponse.setProjectDetailId(projectDetail.getId());
@@ -86,7 +86,7 @@ public class StatisticalController {
             projectDetailDtoResponse.setDirection(projectDetail.getDirection());
             projectDetailDtoResponse.setLocation(projectDetail.getLocation());
             projectDetailDtoResponse.setPrice(projectDetail.getPrice());
-            projectDetailDtoResponse.setSate(projectDetail.isState());
+            projectDetailDtoResponse.setState(projectDetail.isState());
             projectDetailDtoResponse.setSize(projectDetail.getSize());
             projectDetailDtoResponse.setProjectDetailName(projectDetail.getProjectDetailName());
             projectDetailDtoResponse.setProjectDetailId(projectDetail.getId());
@@ -128,7 +128,7 @@ public class StatisticalController {
             projectDetailDtoResponse.setDirection(projectDetail.getDirection());
             projectDetailDtoResponse.setLocation(projectDetail.getLocation());
             projectDetailDtoResponse.setPrice(projectDetail.getPrice());
-            projectDetailDtoResponse.setSate(projectDetail.isState());
+            projectDetailDtoResponse.setState(projectDetail.isState());
             projectDetailDtoResponse.setSize(projectDetail.getSize());
             projectDetailDtoResponse.setProjectDetailName(projectDetail.getProjectDetailName());
             projectDetailDtoResponse.setProjectDetailId(projectDetail.getId());

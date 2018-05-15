@@ -12,7 +12,7 @@ public class ProjectDetailDtoResponse {
     private String projectDetailId;
     private String projectDetailName;
     private String location;
-    private Boolean sate;
+    private Boolean state;
     private int size;
 
     public String getProjectName() {
@@ -87,12 +87,12 @@ public class ProjectDetailDtoResponse {
         this.location = location;
     }
 
-    public Boolean getSate() {
-        return sate;
+    public Boolean getState() {
+        return state;
     }
 
-    public void setSate(Boolean sate) {
-        this.sate = sate;
+    public void setState(Boolean sate) {
+        this.state = sate;
     }
 
     public int getSize() {
