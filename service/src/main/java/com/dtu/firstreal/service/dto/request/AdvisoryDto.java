@@ -1,4 +1,4 @@
-package Model;
+package com.dtu.firstreal.service.dto.request;
 
 import java.io.Serializable;
 

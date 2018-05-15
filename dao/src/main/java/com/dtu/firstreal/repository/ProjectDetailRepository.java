@@ -1,6 +1,7 @@
 package com.dtu.firstreal.repository;
 
 import com.dtu.firstreal.entity.Employee;
+import com.dtu.firstreal.entity.Project;
 import com.dtu.firstreal.entity.ProjectDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -34,4 +35,7 @@ public interface ProjectDetailRepository extends JpaRepository<ProjectDetail, St
 
     @Query(value = "select p from ProjectDetail p where p.size = :size and p.direction = :direction and p.price <= :price")
     List<ProjectDetail> findAllBySizeAndDirectionAndPrice(@Param("size") int size,@Param("direction") String direction,@Param("price") String price);
+
+    @Query(value = "select p from ProjectDetail p where p.project =:project")
+    List<ProjectDetail> findAllByProject(@Param("project") Project project);
 }
