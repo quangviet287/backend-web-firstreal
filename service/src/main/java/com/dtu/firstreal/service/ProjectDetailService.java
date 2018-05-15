@@ -21,4 +21,5 @@ public interface ProjectDetailService {
     List<ProjectDetail> getAllBySize(int size);
     List<ProjectDetail> findAllBySizeAndDirectionAndPrice(int size, String direction, String price);
     ProjectDetailResponse createProject(ProjectDetailDto projectDetailDto);
+    List<ProjectDetail> findAllByProjectId(String id);
 }

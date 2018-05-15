@@ -6,7 +6,6 @@ import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.repository.EmployeeRepository;
 import com.dtu.firstreal.repository.ProjectDetailRepository;
 import com.dtu.firstreal.repository.ProjectRepository;
-import com.dtu.firstreal.service.EmployeeService;
 import com.dtu.firstreal.service.ProjectDetailService;
 import com.dtu.firstreal.service.dto.request.ProjectDetailDto;
 import com.dtu.firstreal.service.dto.response.ProjectDetailResponse;
@@ -42,7 +41,7 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
 
     @Autowired
     private Environment env;
-    private EmployeeService employeeService;
+
 
     public ProjectDetailServiceImpl(ProjectDetailRepository projectDetailRepository) {
         this.projectDetailRepository = projectDetailRepository;
@@ -52,6 +51,12 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     @Override
     public List<ProjectDetail> findAllDetail() {
         return projectDetailRepository.findAll();
+    }
+
+    @Override
+    public List<ProjectDetail> findAllByProjectId(String id) {
+        Project project = projectRepository.findById(id).get();
+        return projectDetailRepository.findAllByProject(project);
     }
 
     @Override

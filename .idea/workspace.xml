@@ -7,7 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de4f757c-a9da-4a94-a180-7348e8128bb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/ProjectDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/ProjectDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/ProjectDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/ProjectDetailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/ProjectDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/ProjectDetailService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,11 +45,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProjectDetailController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProjectDetailController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/ProjectDetailController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="59" column="48" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="48" />
+            <state relative-caret-position="229">
+              <caret line="92" column="81" selection-start-line="92" selection-start-column="81" selection-end-line="92" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectDetailServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectDetailRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/ProjectDetailRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectDetailService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/ProjectDetailService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -53,7 +84,7 @@
       <file leaf-file-name="EmployeeServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/EmployeeServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
+            <state relative-caret-position="690">
               <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -64,11 +95,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmployeeController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EmployeeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="76" column="45" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
+            <state relative-caret-position="1605">
+              <caret line="127" column="9" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/entity/Transaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransactionController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/TransactionController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -110,7 +159,6 @@
         <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/utility/Constants.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/CustomerController.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/ProjectDetailRepository.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/AdvisoryController.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/TransactionController.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/dto/ImageDto.java" />
@@ -129,8 +177,6 @@
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/dto/request/ProjectDto.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/dto/response/ProjectResponseDto.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/dto/response/ProjectResponse.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java" />
-        <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/ProjectDetailService.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/AddressRepository.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/ProjectTypeRepository.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/exception/AddressNotFoundException.java" />
@@ -139,7 +185,6 @@
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/dto/response/ProjectDtoResponse.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/ProjectService.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectServiceImpl.java" />
-        <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/ProjectDetailController.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/ProjectController.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/EmployeeService.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/RoleRepository.java" />
@@ -150,6 +195,10 @@
         <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/SearchController.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/EmployeeServiceImpl.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/ProjectDetailService.java" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java" />
+        <option value="$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/ProjectDetailRepository.java" />
+        <option value="$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/ProjectDetailController.java" />
       </list>
     </option>
   </component>
@@ -203,7 +252,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -411,7 +460,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -674,7 +723,8 @@
       <workItem from="1525799458062" duration="3244000" />
       <workItem from="1525877100689" duration="5687000" />
       <workItem from="1525924012998" duration="5487000" />
-      <workItem from="1526287473274" duration="1767000" />
+      <workItem from="1526287473274" duration="1921000" />
+      <workItem from="1526349766631" duration="1941000" />
     </task>
     <task id="LOCAL-00001" summary="Add search api">
       <created>1524588222938</created>
@@ -687,7 +737,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123547000" />
+    <option name="totallyTimeSpent" value="125642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="-4" width="1879" height="1084" extended-state="6" />
@@ -700,7 +750,6 @@
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24986391" />
       <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -715,7 +764,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.18731989" />
       <window_info anchor="bottom" id="Spring" order="12" weight="0.32843137" />
       <window_info anchor="bottom" id="Terminal" order="14" weight="0.3713981" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29504627" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29831246" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -725,6 +774,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.31556195" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24986391" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977587" />
     </layout>
   </component>
@@ -787,31 +837,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java</url>
-          <line>84</line>
+          <line>89</line>
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java</url>
-          <line>137</line>
+          <line>142</line>
           <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java</url>
-          <line>135</line>
+          <line>140</line>
           <properties />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/ProjectDetailController.java</url>
-          <line>134</line>
+          <line>187</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/ProjectDetailController.java</url>
-          <line>124</line>
+          <line>177</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
@@ -876,20 +926,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/security/JWTAuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-255">
@@ -997,13 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/ProjectDetailService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/CustomerRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1092,17 +1121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
-          <folding>
-            <element signature="e#5561#5562#0" />
-            <element signature="e#5618#5619#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1195,13 +1213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/TransactionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="39" column="60" selection-start-line="39" selection-start-column="60" selection-end-line="39" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/SearchController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
@@ -1218,7 +1229,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/EmployeeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
+        <state relative-caret-position="690">
           <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1228,17 +1239,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/ProjectDetailController.java">
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="59" column="48" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="48" />
+        <state relative-caret-position="1605">
+          <caret line="127" column="9" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/EmployeeController.java">
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/entity/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="76" column="45" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
+        <state relative-caret-position="75">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/TransactionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/ProjectDetailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/dtu/firstreal/repository/ProjectDetailRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com/dtu/firstreal/service/Impl/ProjectDetailServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/com/dtu/firstreal/controller/ProjectDetailController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="92" column="81" selection-start-line="92" selection-start-column="81" selection-end-line="92" selection-end-column="81" />
         </state>
       </provider>
     </entry>

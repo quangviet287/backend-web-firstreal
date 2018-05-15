@@ -1,8 +1,10 @@
 package com.dtu.firstreal.controller;
 
+import com.dtu.firstreal.entity.Project;
 import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.service.EmployeeService;
 import com.dtu.firstreal.service.ProjectDetailService;
+import com.dtu.firstreal.service.ProjectService;
 import com.dtu.firstreal.service.dto.request.ImageDto;
 import com.dtu.firstreal.service.dto.request.ProjectDetailDto;
 import com.dtu.firstreal.service.dto.response.ProjectDetailDtoResponse;
@@ -33,6 +35,9 @@ public class ProjectDetailController {
 
     @Autowired
     EmployeeService employeeService;
+
+    @Autowired
+    ProjectService projectService;
 
     @Autowired
     private Environment env;
@@ -79,6 +84,54 @@ public class ProjectDetailController {
             return new ResponseEntity<>("no detail found", HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(responses,HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getAll/project/{id}")
+    public ResponseEntity<?> getAllDetailByProject(@PathVariable("id") String id){
+        Project project = projectService.getOne(id);
+        if(project == null){
+            return new ResponseEntity<>("no project found",HttpStatus.NOT_FOUND);
+        }else{
+            List<ProjectDetail> projectDetails = projectDetailService.findAllByProjectId(id);
+            List<ProjectDetailDtoResponse> responses = new ArrayList<>();
+            for (ProjectDetail projectDetail : projectDetails) {
+                ProjectDetailDtoResponse projectDetailDtoResponse = new ProjectDetailDtoResponse();
+                ImageDto imageDto = new ImageDto();
+                projectDetailDtoResponse.setImage(imageDto);
+                projectDetailDtoResponse.setEmployeeId(projectDetail.getEmployee().getId());
+                projectDetailDtoResponse.setProjectId(projectDetail.getProject().getId());
+                projectDetailDtoResponse.setDirection(projectDetail.getDirection());
+                projectDetailDtoResponse.setLocation(projectDetail.getLocation());
+                projectDetailDtoResponse.setPrice(projectDetail.getPrice());
+                projectDetailDtoResponse.setSate(projectDetail.isState());
+                projectDetailDtoResponse.setSize(projectDetail.getSize());
+                projectDetailDtoResponse.setProjectDetailName(projectDetail.getProjectDetailName());
+                projectDetailDtoResponse.setProjectDetailId(projectDetail.getId());
+                try{
+
+                    String imageType = projectDetail.getImageProjectDetailUrl().substring(projectDetail.getImageProjectDetailUrl().lastIndexOf(".")+1);
+                    BufferedImage originalImage =
+                            ImageIO.read(new File(projectDetail.getImageProjectDetailUrl()));
+
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    ImageIO.write( originalImage, imageType, baos );
+                    baos.flush();
+                    byte[] imageInByte = baos.toByteArray();
+                    imageDto.setImage(Base64Utils.encodeToString(imageInByte));
+                    imageDto.setType(imageType);
+                    baos.close();
+
+                }catch(IOException e){
+                    System.out.println(e.getMessage());
+                }
+
+                responses.add(projectDetailDtoResponse);
+            }
+            if (projectDetails == null){
+                return new ResponseEntity<>("no detail found by Project ",HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(responses, HttpStatus.OK);
+        }
     }
 
     @GetMapping(value = "/getOne/{id}")
