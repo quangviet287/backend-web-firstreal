@@ -49,7 +49,9 @@ public class ProjectController {
             ImageDto imageDto = new ImageDto();
             projectDtoResponse.setImage(imageDto);
             projectDtoResponse.setAddressId(project.getAddress().getId());
+            projectDtoResponse.setAddressName(project.getAddress().getCity());
             projectDtoResponse.setProjectTypeId(project.getProjectType().getId());
+            projectDtoResponse.setProjectTypeName(project.getProjectType().getProjectTypeName());
             projectDtoResponse.setDescription(project.getDescription());
             projectDtoResponse.setProjectId(project.getId());
             projectDtoResponse.setProjectName(project.getProjectName());

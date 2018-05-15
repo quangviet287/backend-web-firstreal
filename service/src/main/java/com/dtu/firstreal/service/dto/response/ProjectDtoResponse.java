@@ -6,9 +6,27 @@ public class ProjectDtoResponse{
     private String projectId;
     private String projectName;
     private String addressId;
+    private String addressName;
     private String description;
     private ImageDto image;
     private String projectTypeId;
+    private String projectTypeName;
+
+    public String getAddressName() {
+        return addressName;
+    }
+
+    public void setAddressName(String addressName) {
+        this.addressName = addressName;
+    }
+
+    public String getProjectTypeName() {
+        return projectTypeName;
+    }
+
+    public void setProjectTypeName(String projectTypeName) {
+        this.projectTypeName = projectTypeName;
+    }
 
     public String getProjectId() {
         return projectId;

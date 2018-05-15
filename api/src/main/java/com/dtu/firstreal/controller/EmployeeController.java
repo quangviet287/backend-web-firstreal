@@ -79,7 +79,35 @@ public class EmployeeController  {
     @GetMapping(value = "/getOne/{id}")
     public ResponseEntity<Object> getEmployeeById(@PathVariable("id") String id){
         Employee employee = employeeService.findEmployeeById(id);
-        return new ResponseEntity<>(employee,HttpStatus.OK);
+        EmployeeDtoResponse employeeDtoResponse = new EmployeeDtoResponse();
+        ImageDto imageDto = new ImageDto();
+        employeeDtoResponse.setEmployeeId(employee.getId());
+        employeeDtoResponse.setEmployeeName(employee.getEmployeeName());
+        employeeDtoResponse.setAge(employee.getAge());
+        employeeDtoResponse.setSex(employee.getSex());
+        employeeDtoResponse.setImageProfileUrl(imageDto);
+        employeeDtoResponse.setRoleId(employee.getRole().getId());
+        employeeDtoResponse.setPhoneNumber(employee.getPhoneNumber());
+        employeeDtoResponse.setUserName(employee.getUsername());
+        employeeDtoResponse.setPassword(employee.getPassword());
+        try{
+
+            String imageType = employee.getImageProfileUrl().substring(employee.getImageProfileUrl().lastIndexOf(".")+1);
+            BufferedImage originalImage =
+                    ImageIO.read(new File(employee.getImageProfileUrl()));
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write( originalImage, imageType, baos );
+            baos.flush();
+            byte[] imageInByte = baos.toByteArray();
+            imageDto.setImage(Base64Utils.encodeToString(imageInByte));
+            imageDto.setType(imageType);
+            baos.close();
+
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        return new ResponseEntity<>(employeeDtoResponse,HttpStatus.OK);
     }
 
     @PostMapping(value = "/create")

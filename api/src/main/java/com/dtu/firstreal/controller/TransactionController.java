@@ -4,6 +4,8 @@ import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.entity.Transaction;
 import com.dtu.firstreal.service.ProjectDetailService;
 import com.dtu.firstreal.service.TransactionService;
+import com.dtu.firstreal.service.dto.request.CustomerDto;
+import com.dtu.firstreal.service.dto.response.TransactionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,5 +48,16 @@ public class TransactionController {
         }else {
             return ResponseEntity.notFound().build();
         }
+    }
+    @PostMapping(value = "/save/{projectDetailId}")
+    public TransactionResponse saveTransaction(@Valid @RequestBody CustomerDto customerDto, @PathVariable("projectDetailId") String projectDetailId){
+        Transaction transaction = transactionService.create(customerDto,projectDetailId);
+        return new TransactionResponse(transaction.getId());
+    }
+
+    @DeleteMapping(value = "/destroy/{transactionId}+{customerId}")
+    public ResponseEntity<?> destroyTransaction(@PathVariable("transactionId") String transactionId, @PathVariable("customerId") String customerId){
+        transactionService.destroy(transactionId, customerId);
+        return ResponseEntity.ok().build();
     }
 }

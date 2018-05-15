@@ -58,7 +58,9 @@ public class ProjectServiceImpl implements ProjectService{
             ImageDto imageDto = new ImageDto();
             projectResponse.setImage(imageDto);
             projectResponse.setAddressId(project.getAddress().getId());
+            projectResponse.setAddressName(project.getAddress().getCity());
             projectResponse.setProjectTypeId(project.getProjectType().getId());
+            projectResponse.setProjectTypeName(project.getProjectType().getProjectTypeName());
             projectResponse.setDescription(project.getDescription());
             projectResponse.setProjectId(project.getId());
             projectResponse.setProjectName(project.getProjectName());

@@ -41,6 +41,7 @@ public class StatisticalController {
             projectDetailDtoResponse.setImage(imageDto);
             projectDetailDtoResponse.setEmployeeId(projectDetail.getEmployee().getId());
             projectDetailDtoResponse.setProjectId(projectDetail.getProject().getId());
+            projectDetailDtoResponse.setProjectName(projectDetail.getProject().getProjectName());
             projectDetailDtoResponse.setDirection(projectDetail.getDirection());
             projectDetailDtoResponse.setLocation(projectDetail.getLocation());
             projectDetailDtoResponse.setPrice(projectDetail.getPrice());
@@ -81,6 +82,7 @@ public class StatisticalController {
             projectDetailDtoResponse.setImage(imageDto);
             projectDetailDtoResponse.setEmployeeId(projectDetail.getEmployee().getId());
             projectDetailDtoResponse.setProjectId(projectDetail.getProject().getId());
+            projectDetailDtoResponse.setProjectName(projectDetail.getProject().getProjectName());
             projectDetailDtoResponse.setDirection(projectDetail.getDirection());
             projectDetailDtoResponse.setLocation(projectDetail.getLocation());
             projectDetailDtoResponse.setPrice(projectDetail.getPrice());
@@ -122,6 +124,7 @@ public class StatisticalController {
             projectDetailDtoResponse.setImage(imageDto);
             projectDetailDtoResponse.setEmployeeId(projectDetail.getEmployee().getId());
             projectDetailDtoResponse.setProjectId(projectDetail.getProject().getId());
+            projectDetailDtoResponse.setProjectName(projectDetail.getProject().getProjectName());
             projectDetailDtoResponse.setDirection(projectDetail.getDirection());
             projectDetailDtoResponse.setLocation(projectDetail.getLocation());
             projectDetailDtoResponse.setPrice(projectDetail.getPrice());

@@ -4,6 +4,7 @@ import com.dtu.firstreal.service.dto.request.ImageDto;
 
 public class ProjectDetailDtoResponse {
     private String projectId;
+    private String projectName;
     private ImageDto image;
     private String price;
     private String direction;
@@ -13,6 +14,14 @@ public class ProjectDetailDtoResponse {
     private String location;
     private Boolean sate;
     private int size;
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
 
     public String getProjectId() {
         return projectId;
