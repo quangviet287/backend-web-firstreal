@@ -57,4 +57,9 @@ public class TransactionServiceImpl implements TransactionService {
         transactionRepository.deleteById(transactionId);
         customerRepository.deleteById(customerId);
     }
+
+    @Override
+    public Transaction getOneByProjectDetail(ProjectDetail projectDetail) {
+        return transactionRepository.getOneByProjectDetailId(projectDetail);
+    }
 }

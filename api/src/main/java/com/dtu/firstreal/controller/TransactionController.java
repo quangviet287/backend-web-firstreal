@@ -32,6 +32,15 @@ public class TransactionController {
         }return new ResponseEntity<>(transactions, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/getInforTransaction/{projectDetailId}")
+    public ResponseEntity<?> getOneByProject(@PathVariable("projectDetailId") String projectDetailId){
+        ProjectDetail projectDetail = projectDetailService.getOne(projectDetailId);
+        if (projectDetail == null){
+            return ResponseEntity.notFound().build();
+        }else {
+            return new ResponseEntity<>(transactionService.getOneByProjectDetail(projectDetail), HttpStatus.OK);
+        }
+    }
 
     @PostMapping(value = "/create")
     public ResponseEntity<Object> createTransaction(@Valid @RequestBody Transaction transactionForm){
