@@ -12,6 +12,15 @@ public class EmployeeDtoResponse {
     private String userName;
     private String password;
     private String roleId;
+    private String roleName;
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
 
     public String getEmployeeId() {
         return employeeId;

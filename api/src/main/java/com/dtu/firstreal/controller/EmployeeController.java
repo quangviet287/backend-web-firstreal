@@ -48,6 +48,7 @@ public class EmployeeController  {
             employeeDtoResponse.setSex(employee.getSex());
             employeeDtoResponse.setImageProfileUrl(imageDto);
             employeeDtoResponse.setRoleId(employee.getRole().getId());
+            employeeDtoResponse.setRoleName(employee.getRole().getRoleName());
             employeeDtoResponse.setPhoneNumber(employee.getPhoneNumber());
             employeeDtoResponse.setUserName(employee.getUsername());
             employeeDtoResponse.setPassword(employee.getPassword());
@@ -87,6 +88,7 @@ public class EmployeeController  {
         employeeDtoResponse.setSex(employee.getSex());
         employeeDtoResponse.setImageProfileUrl(imageDto);
         employeeDtoResponse.setRoleId(employee.getRole().getId());
+        employeeDtoResponse.setRoleName(employee.getRole().getRoleName());
         employeeDtoResponse.setPhoneNumber(employee.getPhoneNumber());
         employeeDtoResponse.setUserName(employee.getUsername());
         employeeDtoResponse.setPassword(employee.getPassword());
