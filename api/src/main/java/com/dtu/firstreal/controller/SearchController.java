@@ -154,6 +154,12 @@ public class SearchController {
                                                                    @PathVariable("price") String price){
         List<ProjectDetail> projectDetails = projectDetailService.findAllBySizeAndDirectionAndPrice(size,direction,price);
         List<ProjectDetailDtoResponse> responses = new ArrayList<>();
+        search(projectDetails,responses);
+        if(projectDetails.size()==0){
+            return new ResponseEntity<>("no detail found", HttpStatus.NOT_FOUND);
+         }return new ResponseEntity<>(responses, HttpStatus.OK);
+    }
+    private void search(List<ProjectDetail> projectDetails, List<ProjectDetailDtoResponse> responses){
         for (ProjectDetail projectDetail : projectDetails) {
             ProjectDetailDtoResponse projectDetailDtoResponse = new ProjectDetailDtoResponse();
             ImageDto imageDto = new ImageDto();
@@ -185,8 +191,5 @@ public class SearchController {
             }
             responses.add(projectDetailDtoResponse);
         }
-        if(projectDetails == null){
-            return new ResponseEntity<>("no detail found", HttpStatus.NOT_FOUND);
-         }return new ResponseEntity<>(responses, HttpStatus.OK);
     }
 }

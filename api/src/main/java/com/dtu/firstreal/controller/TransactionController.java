@@ -38,7 +38,12 @@ public class TransactionController {
         if (projectDetail == null){
             return ResponseEntity.notFound().build();
         }else {
-            return new ResponseEntity<>(transactionService.getOneByProjectDetail(projectDetail), HttpStatus.OK);
+            try {
+                Transaction transaction = transactionService.getOneByProjectDetail(projectDetailId);
+                return new ResponseEntity<>(transaction, HttpStatus.OK);
+            }catch (RuntimeException e){
+                throw new RuntimeException(e);
+            }
         }
     }
 

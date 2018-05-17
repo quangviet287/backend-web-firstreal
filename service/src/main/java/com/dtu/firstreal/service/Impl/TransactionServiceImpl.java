@@ -59,7 +59,8 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public Transaction getOneByProjectDetail(ProjectDetail projectDetail) {
+    public Transaction getOneByProjectDetail(String id) {
+        ProjectDetail projectDetail = projectDetailRepository.getOne(id);
         return transactionRepository.getOneByProjectDetailId(projectDetail);
     }
 }

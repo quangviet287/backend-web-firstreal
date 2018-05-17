@@ -1,6 +1,5 @@
 package com.dtu.firstreal.service;
 
-import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.entity.Transaction;
 import com.dtu.firstreal.service.dto.request.CustomerDto;
 
@@ -15,5 +14,5 @@ public interface TransactionService {
 
     void destroy(String transactionId, String customerId);
 
-    Transaction getOneByProjectDetail(ProjectDetail projectDetail);
+    Transaction getOneByProjectDetail(String id);
 }

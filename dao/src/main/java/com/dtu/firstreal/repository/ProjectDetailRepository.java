@@ -33,7 +33,7 @@ public interface ProjectDetailRepository extends JpaRepository<ProjectDetail, St
     @Query(value = "select p from ProjectDetail p where p.size <= :size")
     List<ProjectDetail> findAllBySize(@Param("size") int size);
 
-    @Query(value = "select p from ProjectDetail p where p.size = :size and p.direction = :direction and p.price <= :price")
+    @Query(value = "select p from ProjectDetail p where p.size <= :size and p.direction = :direction and p.price <= :price")
     List<ProjectDetail> findAllBySizeAndDirectionAndPrice(@Param("size") int size,@Param("direction") String direction,@Param("price") String price);
 
     @Query(value = "select p from ProjectDetail p where p.project =:project")

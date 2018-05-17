@@ -9,6 +9,7 @@ public class ProjectDetailDtoResponse {
     private String price;
     private String direction;
     private String employeeId;
+    private String employeeName;
     private String projectDetailId;
     private String projectDetailName;
     private String location;
@@ -101,5 +102,13 @@ public class ProjectDetailDtoResponse {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 }
