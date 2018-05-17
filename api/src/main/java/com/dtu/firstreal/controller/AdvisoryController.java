@@ -1,17 +1,15 @@
 package com.dtu.firstreal.controller;
 
-import com.dtu.firstreal.service.dto.request.AdvisoryDto;
 import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.service.ProjectDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,10 +19,8 @@ public class AdvisoryController {
     @Autowired
     ProjectDetailService projectDetailService;
 
-    @PostMapping
-    public ResponseEntity<Object> getDetailsByDirection(@Valid @RequestBody AdvisoryDto advisoryDto){
-        String age = advisoryDto.getAge();
-        Boolean sex = advisoryDto.getSex();
+    @PostMapping(value = "/{age}+{sex}")
+    public ResponseEntity<Object> getDetailsByDirection(@PathVariable("age") String age, @PathVariable("sex") Boolean sex){
         String direction;
 
         if(age.equals("Ty") && sex.equals(true)){
