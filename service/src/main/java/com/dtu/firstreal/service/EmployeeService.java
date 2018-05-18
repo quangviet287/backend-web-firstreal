@@ -14,6 +14,6 @@ public interface EmployeeService {
     Employee save(Employee employee);
     void delete(Employee employee);
     Employee getEmployeeByUserName(String username);
-    Employee getEmployeeByUsernameAndPassword(String username, String password);
+    Employee getEmployeeByUsernameAndPassword(String id, String username, String password);
     EmployeeResponse create(EmployeeDto employeeDto);
 }
