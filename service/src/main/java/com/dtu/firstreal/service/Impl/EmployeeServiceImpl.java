@@ -109,6 +109,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new EmployeeResponse(employee.getId());
     }
 
+    @Override
+    public Employee getOneByName(String employeeName) {
+        return employeeRepository.getOneByEmployeeName(employeeName);
+    }
+
     private String getImageDirectory() {
         return env.getProperty("image.directory");
     }

@@ -16,4 +16,6 @@ public interface EmployeeService {
     Employee getEmployeeByUserName(String username);
     Employee getEmployeeByUsernameAndPassword(String id, String username, String password);
     EmployeeResponse create(EmployeeDto employeeDto);
+    Employee getOneByName(String employeeName);
+
 }

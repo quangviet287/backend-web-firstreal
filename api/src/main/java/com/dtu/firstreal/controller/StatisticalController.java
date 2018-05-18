@@ -72,9 +72,9 @@ public class StatisticalController {
         }else return new ResponseEntity<>(responses, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/getAllSoldByEmployee/{id}")
-    public ResponseEntity<Object> statisticalDetailSoldByEmployee(@PathVariable("id") String id){
-        Employee employee = employeeService.findEmployeeById(id);
+    @GetMapping(value = "/getAllSoldByEmployee/{employeeName}")
+    public ResponseEntity<Object> statisticalDetailSoldByEmployee(@PathVariable("employeeName") String employeeName){
+        Employee employee = employeeService.getOneByName(employeeName);
         List<ProjectDetail> projectDetails = projectDetailService.getAllSoldByEmployee(employee);
         List<ProjectDetailDtoResponse> responses = new ArrayList<>();
         for (ProjectDetail projectDetail : projectDetails) {
