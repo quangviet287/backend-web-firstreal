@@ -16,11 +16,11 @@ public class LoginController {
     @Autowired
     EmployeeService employeeService;
 
-    @PostMapping(value = "/{id}")
-    public ResponseEntity<Object> login(@PathVariable("id") String id, @Valid @RequestBody LoginDto loginDto){
+    @PostMapping
+    public ResponseEntity<Object> login(@Valid @RequestBody LoginDto loginDto){
         String username = loginDto.getUsername();
         String password = loginDto.getPassword();
-        Employee employee = employeeService.getEmployeeByUsernameAndPassword(id, username,password);
+        Employee employee = employeeService.getEmployeeByUsernameAndPassword(username,password);
         if(employee == null){
             return ResponseEntity.notFound().build();
         }else return ResponseEntity.ok().build();

@@ -79,8 +79,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getEmployeeByUsernameAndPassword(String id, String username, String password) {
-        return employeeRepository.getOneByIdAndUsernameAndPassword(id, username,password);
+    public Employee getEmployeeByUsernameAndPassword(String username, String password) {
+        return employeeRepository.getOneUsernameAndPassword(username,password);
     }
 
     @Override
@@ -111,7 +111,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee getOneByName(String employeeName) {
-        return employeeRepository.getOneByEmployeeName(employeeName);
+        return employeeRepository.getOneByUsername(employeeName);
     }
 
     private String getImageDirectory() {

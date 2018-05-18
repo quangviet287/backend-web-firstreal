@@ -213,7 +213,7 @@ public class ProjectDetailController {
         }
     }
 
-    @DeleteMapping(value = "/delete")
+    @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<Object> deleteProjectDetails(@PathVariable("id") String id){
         ProjectDetail projectDetail = projectDetailService.getOne(id);
         if(projectDetail == null){
