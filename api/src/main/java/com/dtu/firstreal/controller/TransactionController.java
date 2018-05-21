@@ -69,9 +69,9 @@ public class TransactionController {
         return new TransactionResponse(transaction.getId());
     }
 
-    @DeleteMapping(value = "/destroy/{transactionId}+{customerId}")
-    public ResponseEntity<?> destroyTransaction(@PathVariable("transactionId") String transactionId, @PathVariable("customerId") String customerId){
-        transactionService.destroy(transactionId, customerId);
+    @DeleteMapping(value = "/destroy/{projectDetailId}")
+    public ResponseEntity<?> destroyTransaction(@PathVariable("projectDetailId") String projectDetailId){
+        transactionService.destroy(projectDetailId);
         return ResponseEntity.ok().build();
     }
 }

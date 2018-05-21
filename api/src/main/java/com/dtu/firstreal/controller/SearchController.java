@@ -165,6 +165,7 @@ public class SearchController {
             ImageDto imageDto = new ImageDto();
             projectDetailDtoResponse.setImage(imageDto);
             projectDetailDtoResponse.setEmployeeId(projectDetail.getEmployee().getId());
+            projectDetailDtoResponse.setEmployeeName(projectDetail.getEmployee().getEmployeeName());
             projectDetailDtoResponse.setProjectId(projectDetail.getProject().getId());
             projectDetailDtoResponse.setProjectName(projectDetail.getProject().getProjectName());
             projectDetailDtoResponse.setDirection(projectDetail.getDirection());

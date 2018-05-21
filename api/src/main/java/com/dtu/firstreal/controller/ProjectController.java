@@ -1,6 +1,7 @@
 package com.dtu.firstreal.controller;
 
 import com.dtu.firstreal.entity.Project;
+import com.dtu.firstreal.service.ProjectDetailService;
 import com.dtu.firstreal.service.ProjectService;
 import com.dtu.firstreal.service.dto.request.ImageDto;
 import com.dtu.firstreal.service.dto.request.ProjectDto;
@@ -21,6 +22,7 @@ import java.io.*;
 import java.util.List;
 import java.util.Random;
 
+//@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/project")
 public class ProjectController {
@@ -28,6 +30,9 @@ public class ProjectController {
 
     @Autowired
     ProjectService projectService;
+
+    @Autowired
+    ProjectDetailService projectDetailService;
 
     @Autowired
     private Environment env;
@@ -113,6 +118,7 @@ public class ProjectController {
         if(project == null){
             return new ResponseEntity<>("no project found", HttpStatus.NOT_FOUND);
         }
+//        projectDetailService.deleteAllByProject(project);
         projectService.deleteProject(project);
         return ResponseEntity.ok().build();
     }

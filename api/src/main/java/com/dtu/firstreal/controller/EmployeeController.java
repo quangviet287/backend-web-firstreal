@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
-@RequestMapping("/employee/")
+@RequestMapping("/employee")
 public class EmployeeController  {
     private static final Logger log = LoggerFactory.getLogger(EmployeeController.class);
 

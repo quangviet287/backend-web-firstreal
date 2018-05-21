@@ -53,14 +53,24 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public void destroy(String transactionId, String customerId) {
-        transactionRepository.deleteById(transactionId);
-        customerRepository.deleteById(customerId);
+    public void destroy(String projectDetailId) {
+        ProjectDetail projectDetail = projectDetailRepository.getOne(projectDetailId);
+        Transaction transaction = transactionRepository.getOneByProjectDetailId(projectDetail);
+        transactionRepository.delete(transaction);
+//        transactionRepository.deleteById(transactionId);
+//        Transaction transaction = transactionRepository.getOne(transactionId);
+        String idCus = transaction.getCustomer().getId();
+        customerRepository.deleteById(idCus);
     }
 
     @Override
     public Transaction getOneByProjectDetail(String id) {
         ProjectDetail projectDetail = projectDetailRepository.getOne(id);
         return transactionRepository.getOneByProjectDetailId(projectDetail);
+    }
+
+    @Override
+    public Transaction deleteByProjectDetail(ProjectDetail projectDetail) {
+        return transactionRepository.deleteByProjectDetail(projectDetail);
     }
 }

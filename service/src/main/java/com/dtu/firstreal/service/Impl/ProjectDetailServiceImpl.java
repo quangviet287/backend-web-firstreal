@@ -6,6 +6,7 @@ import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.repository.EmployeeRepository;
 import com.dtu.firstreal.repository.ProjectDetailRepository;
 import com.dtu.firstreal.repository.ProjectRepository;
+import com.dtu.firstreal.repository.TransactionRepository;
 import com.dtu.firstreal.service.ProjectDetailService;
 import com.dtu.firstreal.service.dto.request.ProjectDetailDto;
 import com.dtu.firstreal.service.dto.response.ProjectDetailResponse;
@@ -38,6 +39,8 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
     private  ProjectRepository projectRepository;
     @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
+    TransactionRepository transactionRepository;
 
     @Autowired
     private Environment env;
@@ -50,7 +53,13 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
 
     @Override
     public List<ProjectDetail> findAllDetail() {
-        return projectDetailRepository.findAll();
+        return projectDetailRepository.findAllByState();
+    }
+
+    @Override
+    public List<ProjectDetail> AdminFindAllByProjectId(String id) {
+        Project project = projectRepository.findById(id).get();
+        return projectDetailRepository.AdminFindAllByProject(project);
     }
 
     @Override
@@ -148,6 +157,22 @@ public class ProjectDetailServiceImpl implements ProjectDetailService {
          return new ProjectDetailResponse(projectDetail.getId());
 
     }
+
+    @Override
+    public void deleteAllByProject(Project project) {
+       // Project project = projectRepository.getOne(id);
+        projectDetailRepository.deleteByProject(project);
+        List<ProjectDetail> projectDetail = projectDetailRepository.findAllByProject(project);
+        for (ProjectDetail detail : projectDetail){
+            transactionRepository.deleteByProjectDetail(detail);
+        }
+    }
+
+    @Override
+    public void deleteAllByEmployee(String id) {
+        projectDetailRepository.deleteAllByEmployee(employeeRepository.getOne(id));
+    }
+
     private String getImageDirectory() {
         return env.getProperty("image.directory");
     }

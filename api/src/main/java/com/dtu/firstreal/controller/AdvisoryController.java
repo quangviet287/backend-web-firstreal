@@ -46,8 +46,8 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }else if(age.equals("Ty") && sex.equals(true)){
-            direction = "Dong Nam";
+        }else if(age.equals("Ty") && sex.equals(false)){
+            direction = "DongNam";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -57,7 +57,7 @@ public class AdvisoryController {
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
         }else if(age.equals("Suu") && sex.equals(true)){
-            direction = "Dong Bac";
+            direction = "DongBac";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -77,7 +77,7 @@ public class AdvisoryController {
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
         }else if(age.equals("Dan") && sex.equals(true)){
-            direction = "Tay Nam";
+            direction = "TayNam";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -87,7 +87,7 @@ public class AdvisoryController {
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
         }else if(age.equals("Dan") && sex.equals(false)){
-            direction = "Tay Bac";
+            direction = "TayBac";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -127,7 +127,7 @@ public class AdvisoryController {
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
         }else if(age.equals("Thin") && sex.equals(false)){
-            direction = "Dong Nam";
+            direction = "DongNam";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -136,8 +136,8 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }else if(age.equals("Ti") && sex.equals(false)){
-            direction = "Dong Bac";
+        }else if(age.equals("Ty") && sex.equals(true)){
+            direction = "DongBac";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -146,7 +146,7 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }else if(age.equals("Ti") && sex.equals(false)){
+        }else if(age.equals("Ty") && sex.equals(false)){
             direction = "Tay";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
@@ -156,8 +156,8 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }else if(age.equals("Ngo") && sex.equals(false)){
-            direction = "Tay Nam";
+        }else if(age.equals("Ngo") && sex.equals(true)){
+            direction = "TayNam";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -167,7 +167,7 @@ public class AdvisoryController {
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
         }else if(age.equals("Ngo") && sex.equals(false)){
-            direction = "Tay Bac";
+            direction = "TayBac";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -176,7 +176,7 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }else if(age.equals("Mui") && sex.equals(false)){
+        }else if(age.equals("Mui") && sex.equals(true)){
             direction = "Nam";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
@@ -196,7 +196,7 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }else if(age.equals("Than") && sex.equals(false)){
+        }else if(age.equals("Than") && sex.equals(true)){
             direction = "Dong";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
@@ -207,7 +207,7 @@ public class AdvisoryController {
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
         }else if(age.equals("Than") && sex.equals(false)){
-            direction = "Dong Nam";
+            direction = "DongNam";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -216,8 +216,8 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }else if(age.equals("Dau") && sex.equals(false)){
-            direction = "Dong Bac";
+        }else if(age.equals("Dau") && sex.equals(true)){
+            direction = "DongBac";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -236,8 +236,8 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }else if(age.equals("Tuat") && sex.equals(false)){
-            direction = "Tay Nam";
+        }else if(age.equals("Tuat") && sex.equals(true)){
+            direction = "TayNam";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -247,7 +247,7 @@ public class AdvisoryController {
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
         }else if(age.equals("Tuat") && sex.equals(false)){
-            direction = "Tay Bac";
+            direction = "TayBac";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
                 return new ResponseEntity<>("No details found", HttpStatus.NOT_FOUND);
@@ -256,7 +256,7 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }else if(age.equals("Hoi") && sex.equals(false)){
+        }else if(age.equals("Hoi") && sex.equals(true)){
             direction = "Nam";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
@@ -266,7 +266,7 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }else{
+        }else if(age.equals("Hoi") && sex.equals(false)){
             direction = "Bac";
             List<ProjectDetail> lists = projectDetailService.getAllByDirection(direction);
             if(lists == null){
@@ -276,7 +276,7 @@ public class AdvisoryController {
                 List<ProjectDetailDtoResponse> responses = getAllDetail(lists);
                 return new ResponseEntity<>(responses, HttpStatus.OK);
             }
-        }
+        } else return ResponseEntity.badRequest().build();
     }
     private List<ProjectDetailDtoResponse> getAllDetail(List<ProjectDetail> lists){
         List<ProjectDetailDtoResponse> responses = new ArrayList<>();

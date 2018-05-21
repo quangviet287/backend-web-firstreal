@@ -1,6 +1,7 @@
 package com.dtu.firstreal.service;
 
 import com.dtu.firstreal.entity.Employee;
+import com.dtu.firstreal.entity.Project;
 import com.dtu.firstreal.entity.ProjectDetail;
 import com.dtu.firstreal.service.dto.request.ProjectDetailDto;
 import com.dtu.firstreal.service.dto.response.ProjectDetailResponse;
@@ -22,4 +23,7 @@ public interface ProjectDetailService {
     List<ProjectDetail> findAllBySizeAndDirectionAndPrice(int size, String direction, String price);
     ProjectDetailResponse createProject(ProjectDetailDto projectDetailDto);
     List<ProjectDetail> findAllByProjectId(String id);
+    List<ProjectDetail> AdminFindAllByProjectId(String id);
+    void deleteAllByProject(Project project);
+    void deleteAllByEmployee(String id);
 }

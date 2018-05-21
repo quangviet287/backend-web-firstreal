@@ -9,4 +9,6 @@ import org.springframework.data.repository.query.Param;
 public interface TransactionRepository extends JpaRepository<Transaction, String> {
     @Query(value = "select t from Transaction t where t.projectDetail =:projectDetail")
     Transaction getOneByProjectDetailId(@Param("projectDetail") ProjectDetail projectDetail);
+
+    Transaction deleteByProjectDetail(ProjectDetail projectDetail);
 }

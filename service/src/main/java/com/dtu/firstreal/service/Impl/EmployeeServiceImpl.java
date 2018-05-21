@@ -80,7 +80,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee getEmployeeByUsernameAndPassword(String username, String password) {
-        return employeeRepository.getOneUsernameAndPassword(username,password);
+        return employeeRepository.getOneByUsernameAndPassword(username,password);
     }
 
     @Override
